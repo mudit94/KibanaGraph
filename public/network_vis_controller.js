@@ -125,7 +125,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                     // Get the buckets of that aggregation
                     var buckets = resp.rows;
-
+					console.log(buckets);
                     ///////////////////////////////////////////////////////////////DATA PARSED AND BUILDING NODES///////////////////////////////////////////////////////////////
                     var dataParsed = [];
                     // Iterate the buckets
@@ -133,6 +133,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var dataNodes = buckets.map(function (bucket) {
 
                         var result = $.grep(dataParsed, function (e) { return e.keyFirstNode == bucket[firstFirstBucketId]; });
+						console.log(result);
+						
                         if (result.length == 0) {
                             dataParsed[i] = {};
 
