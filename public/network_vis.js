@@ -13,7 +13,7 @@ import networkVisTemplate from 'plugins/network_vis/network_vis.html';
 import networkVisParamsTemplate from 'plugins/network_vis/network_vis_params.html';
 
 
-
+console.log("Hi you are in network_vis class");
 
 // register the provider with the visTypes registry
 VisTypesRegistryProvider.register(NetworkVisTypeProvider);
