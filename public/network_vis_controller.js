@@ -135,8 +135,12 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var i = 0;
                     var dataNodes = buckets.map(function (bucket) {
 
-                        var result = $.grep(dataParsed, function (e) { return e.keyFirstNode == bucket[firstFirstBucketId]; });
-						console.log(result);
+                        var result = $.grep(dataParsed, function (e) { 
+
+                        	console.log("E parameter is "+e);
+
+                        	return e.keyFirstNode == bucket[firstFirstBucketId]; });
+						console.log("Result initially"+result);
 						
                         if (result.length == 0) {
                             dataParsed[i] = {};
@@ -200,6 +204,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
+                                console.log("Data parsed for "+ i + "Node"+ dataParsed[i]);
                                 dataParsed[i].relationWithSecondNode.push(relation)
                             }
 
