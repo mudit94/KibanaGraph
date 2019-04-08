@@ -65,6 +65,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
     $scope.$watchMulti(['esResponse', 'vis.params.secondNodeColor'], function ([resp]) {
         let firstFirstBucketId, firstSecondBucketId, secondBucketId, colorBucketId, nodeSizeId, edgeSizeId
+        console.log("Resp array is "+resp);
         if (resp) {
             // new in 6.5
             resp.columns.forEach((col) => {
@@ -84,6 +85,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     edgeSizeId = col.id
                 }
             });
+            console.log("First bucket Id is "+firstFirstBucketId);
+            console.log("Second bucket Id is"+secondBucketId);
 
             ///// It is neccessary to add Timeout in order to have more than 1 net in the same dashboard
             $timeout(function () {
