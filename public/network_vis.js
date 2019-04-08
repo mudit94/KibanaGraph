@@ -37,7 +37,7 @@ function NetworkVisTypeProvider(Private) {
         showPopup: false,
         showColorLegend: true,
         nodePhysics: true,
-        firstNodeColor: '#FD7BC4',
+        firstNodeColor: '#FFA500',
         secondNodeColor: '#00d1ff',
         canvasBackgroundColor: '#FFFFFF',
         shapeFirstNode: 'dot',
