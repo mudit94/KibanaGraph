@@ -133,7 +133,13 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 					console.log(buckets);
                     ///////////////////////////////////////////////////////////////DATA PARSED AND BUILDING NODES///////////////////////////////////////////////////////////////
                     var dataParsed = [];
-
+                    var fw1=[];
+                    var fw2=[];
+                    var fw3=[];
+                    far fw4=[];
+                    var fw5=[];
+                    var fw6=[];
+                    var fw7=[]
 
                     //making static nodes array
                     var fwnodes=[{
@@ -195,15 +201,16 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                     // Iterate the buckets
                     var i = 0;
-                    var regexpattern=/10\.0\.0\.[0-9]{3}/;
+                    var regexpattern=/37\.71\.108\.[0-9]{3}/
+
                     var dataNodes = buckets.map(function (bucket) {
 
                         var result = $.grep(dataParsed, function (e) { 
 
                         	console.log("E parameter is "+e.keyFirstNode);
-
                         	return e.keyFirstNode == bucket[firstFirstBucketId]; });
-						console.log("Result initially"+result);
+
+						console.log("Result initially"+  result);
 						
                         if (result.length == 0) {
                             dataParsed[i] = {};
@@ -267,14 +274,26 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     }
                                 }
 
-                               /* var relation = {
+                                var relation = {
                                     keySecondNode: bucket[firstSecondBucketId],
                                     countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
-                                }*/
+                                }
+
+                                if(regexpattern.test(dataParsed[i].keyFirstNode)){
+
+                                	var relation2={
+                                		keyFireWall: fwnodes[0].key;
+										countMetric: bucket[nodeSizeId],
+                                    widthOfEdge: sizeEdgeVal
+                                }
+
+
+                                }
                                 console.log("Data parsed for "+ i + "Node");
-                                console.log(dataParsed[i]);
                                 dataParsed[i].relationWithSecondNode.push(relation)
+                                dataParsed[i].relationsWithFirewallNode.push(relation2);
+                                console.log(dataParsed[i]);
                             }
 
                             //assigning color and the content of the popup
