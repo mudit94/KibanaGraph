@@ -126,6 +126,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                         var metricsAgg_sizeEdge = $scope.vis.aggs.bySchemaName['size_edge'][0];
                     }
 
+                    	console.log("First field agg id "+firstFieldAggId);
+                    	console.log("Second field agg id "+secondFieldAggId);
                     // Get the buckets of that aggregation
                     var buckets = resp.rows;
 					console.log(buckets);
@@ -204,7 +206,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
-                                console.log("Data parsed for "+ i + "Node"+ dataParsed[i]);
+                                console.log("Data parsed for "+ i + "Node");
+                                console.log(dataParsed[i]);
                                 dataParsed[i].relationWithSecondNode.push(relation)
                             }
 
@@ -270,6 +273,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                     });
                     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                    //Making new static Nodes
 
                     ///////////////////////////////////////////////////////////////////////BUILDING EDGES///////////////////////////////////////////////////////////////////////
                     //Clean "undefined" in the array
