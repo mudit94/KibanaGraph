@@ -139,7 +139,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var fw4=[];
                     var fw5=[];
                     var fw6=[];
-                    var fw7=[]
+                    var fw7=[];
 
                     //making static nodes array
                     var fwnodes=[{
@@ -283,7 +283,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 if(regexpattern.test(dataParsed[i].keyFirstNode)){
 
                                 	var relation2={
-                                		keyFireWall: fwnodes[0].key;
+                                		keyFireWall: fwnodes[0].key,
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
