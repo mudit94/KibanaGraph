@@ -136,7 +136,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var fw1=[];
                     var fw2=[];
                     var fw3=[];
-                    far fw4=[];
+                    var fw4=[];
                     var fw5=[];
                     var fw6=[];
                     var fw7=[]
