@@ -133,13 +133,74 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 					console.log(buckets);
                     ///////////////////////////////////////////////////////////////DATA PARSED AND BUILDING NODES///////////////////////////////////////////////////////////////
                     var dataParsed = [];
+
+
+                    //making static nodes array
+                    var fwnodes=[{
+
+                    	key: "10.0.0.1",
+                    	label: "10.0.0.1",
+                    	shape: $scope.vis.params.shapeFirstNode,
+                    	color: $scope.vis.params.firstNodeColor
+
+                    },
+
+                    {
+                    	key: "10.1.0.1",
+                    	label: "10.1.0.1",
+                    	shape: $scope.vis.params.shapeFirstNode,
+                    	color: $scope.vis.params.firstNodeColor
+                    },
+                    {
+                    	key: "10.2.0.0",
+                    	label: "10.2.0.0",
+                    	shape: $scope.vis.params.shapeFirstNode,
+                    	color: $scope.vis.params.firstNodeColor
+                    
+
+                    },
+                    {
+                    	key: "10.201.0.2",
+                    	label: "10.201.0.2",
+                    	shape: $scope.vis.params.shapeFirstNode,
+                    	color: $scope.vis.params.firstNodeColor
+                    
+
+                    },
+                    {
+                    	key: "10.50.0.1",
+                    	label: "10.50.0.1",
+
+                    	shape: $scope.vis.params.shapeFirstNode,
+                    	color: $scope.vis.params.firstNodeColor
+                 
+		             },
+		             {
+		             	key: "10.30.0.2",
+		             	label: "10.30.0.2",
+
+                    	shape: $scope.vis.params.shapeFirstNode,
+                    	color: $scope.vis.params.firstNodeColor
+                 
+		             },
+		            {
+		             key: "10.20.0.1",
+		             	label: "10.20.0.1",
+                    	shape: $scope.vis.params.shapeFirstNode,
+                    	color: $scope.vis.params.firstNodeColor
+					}                 
+
+
+                 ]
+
                     // Iterate the buckets
                     var i = 0;
+                    var regexpattern=/10\.0\.0\.[0-9]{3}/;
                     var dataNodes = buckets.map(function (bucket) {
 
                         var result = $.grep(dataParsed, function (e) { 
 
-                        	console.log("E parameter is "+e);
+                        	console.log("E parameter is "+e.keyFirstNode);
 
                         	return e.keyFirstNode == bucket[firstFirstBucketId]; });
 						console.log("Result initially"+result);
@@ -167,6 +228,11 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             dataParsed[i].valorSizeNode = sizeVal;
                             dataParsed[i].nodeColorValue = "default";
                             dataParsed[i].nodeColorKey = "default";
+                          
+                            if(!dataParsed[i].relationsWithFirewallNode){
+                            	dataParsed[i].relationsWithFirewallNode=[];
+                            }
+
                             if (!dataParsed[i].relationWithSecondNode) {
                                 dataParsed[i].relationWithSecondNode = [];
                             }
@@ -201,11 +267,11 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     }
                                 }
 
-                                var relation = {
+                               /* var relation = {
                                     keySecondNode: bucket[firstSecondBucketId],
                                     countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
-                                }
+                                }*/
                                 console.log("Data parsed for "+ i + "Node");
                                 console.log(dataParsed[i]);
                                 dataParsed[i].relationWithSecondNode.push(relation)
