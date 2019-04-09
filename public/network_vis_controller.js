@@ -287,12 +287,12 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
-
+                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
                                 console.log("Data parsed for "+ i + "Node");
                                 dataParsed[i].relationWithSecondNode.push(relation)
-                                dataParsed[i].relationsWithFirewallNode.push(relation2);
+                               
                                 console.log(dataParsed[i]);
                             }
 
