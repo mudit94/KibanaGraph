@@ -201,10 +201,10 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                     // Iterate the buckets
                     var i = 0;
-                    var regexpattern=/37\.71\.108\.[0-9]{3}/
-                    var regexpattern2=/77\.84\.169\.[0-9]{3}/
-                    var regexpattern3=/113\.38\.230\.[0-9]{3}/
-                    var regexpattern4=/120\.56\.165\.[0-9]{3}/
+                    var regexpattern=/37\.71\.108\.[0-9]{1,3}/
+                    var regexpattern2=/77\.84\.169\.[0-9]{1,3}/
+                    var regexpattern3=/113\.38\.230\.[0-9]{1,3}/
+                    var regexpattern4=/120\.56\.165\.[0-9]{1,3}/
 
 
                     var dataNodes = buckets.map(function (bucket) {
