@@ -279,7 +279,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
-
+                                	console.log(regexpattern.test(dataParsed[i].keyFirstNode));
                                 if(regexpattern.test(dataParsed[i].keyFirstNode)){
 
                                 	var relation2={
