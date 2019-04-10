@@ -202,6 +202,10 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     // Iterate the buckets
                     var i = 0;
                     var regexpattern=/37\.71\.108\.[0-9]{3}/
+                    var regexpattern2=/77\.84\.169\.[0-9]{3}/
+                    var regexpattern3=/113\.38\.230\.[0-9]{3}/
+                    var regexpattern4=/120\.56\.165\.[0-9]{3}/
+
 
                     var dataNodes = buckets.map(function (bucket) {
 
@@ -280,10 +284,41 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     widthOfEdge: sizeEdgeVal
                                 }
                                 	console.log(regexpattern.test(dataParsed[i].keyFirstNode));
+                                	var relation2={};
                                 if(regexpattern.test(dataParsed[i].keyFirstNode)){
 
-                                	var relation2={
+                                	relation2={
                                 		keyFireWall: fwnodes[0].key,
+										countMetric: bucket[nodeSizeId],
+                                    widthOfEdge: sizeEdgeVal
+                                }
+                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
+
+                                }
+                                else if(regexpattern2.test(dataParsed[i].keyFirstNode)){
+
+                                	relation2={
+                                		keyFireWall: fwnodes[1].key,
+										countMetric: bucket[nodeSizeId],
+                                    widthOfEdge: sizeEdgeVal
+                                }
+                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
+
+                                }
+                                else if(regexpattern3.test(dataParsed[i].keyFirstNode)){
+
+                                	relation2={
+                                		keyFireWall: fwnodes[2].key,
+										countMetric: bucket[nodeSizeId],
+                                    widthOfEdge: sizeEdgeVal
+                                }
+                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
+
+                                }
+                                else if(regexpattern4.test(dataParsed[i].keyFirstNode)){
+
+                                	relation2={
+                                		keyFireWall: fwnodes[3].key,
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
@@ -372,6 +407,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                         } else if (result.length == 1) {
                             //Found the node, access to its id
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
+
                                 for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
                                     //Find in the relations the second node to relate
                                     var nodeOfSecondType = $.grep(dataNodes, function (e) { return e.key == dataParsed[n].relationWithSecondNode[r].keySecondNode; });
