@@ -385,7 +385,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             //Repetido el nodo, solo añadimos sus relaciones
                             var dataParsed_node_exist = result[0]
                             //Iterate rows and choose the edge size
-                            console.log("Data Parsed exist"+dataParsed_node_exist);
+                            console.log("Data Parsed exist"+dataParsed_node_exist[0]);
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                                 if (metricsAgg_sizeEdge) {
                                     var value_sizeEdge = bucket[edgeSizeId];
