@@ -402,7 +402,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 dataParsed_node_exist.relationWithSecondNode.push(relation);
 
                                 //console.log(dataParsed[i].keyFirstNode);
-                                /*if(regexpattern.test(dataParsed[i].keyFirstNode)){
+                                /*if(regexpattern.test(dataParsed_node_exist.relationsWithFirewallNode.key)){
 
                                 	relation2={
                                 		keyFireWall: fwnodes[0].key,
@@ -411,8 +411,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 }
                                 	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
 
-                                }*/
-                                /*else if(regexpattern2.test(dataParsed[i].keyFirstNode)){
+                                }
+                                else if(regexpattern2.test(dataParsed_node_exist.relationsWithFirewallNode.key)){
 
                                 	relation2={
                                 		keyFireWall: fwnodes[1].key,
@@ -477,7 +477,11 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                         } else if (result.length == 1) {
                             //Found the node, access to its id
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
-
+                               for(var k=0;k<dataParsed[n].relationsWithFirewallNode.length;k++){
+                                   var fwNodes=$.grep(dataNodes,function(e){
+                                       console.log("E value for firwall node"+e.key);
+                                   });
+                               }
                                 for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
                                     //Find in the relations the second node to relate
                                     var nodeOfSecondType = $.grep(dataNodes, function (e) { 
