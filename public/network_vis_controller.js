@@ -126,8 +126,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                         var metricsAgg_sizeEdge = $scope.vis.aggs.bySchemaName['size_edge'][0];
                     }
 
-                    	console.log("First field agg id "+firstFieldAggId);
-                    	console.log("Second field agg id "+secondFieldAggId);
+                    	//console.log("First field agg id "+firstFieldAggId);
+                    	//console.log("Second field agg id "+secondFieldAggId);
                     // Get the buckets of that aggregation
                     var buckets = resp.rows;
 					console.log(buckets);
@@ -205,13 +205,14 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var regexpattern2=/77\.84\.169\.[0-9]{1,3}/
                     var regexpattern3=/113\.38\.230\.[0-9]{1,3}/
                     var regexpattern4=/120\.56\.165\.[0-9]{1,3}/
+                    var regexpattern5=/122\.113\.143\.[0-9]{1,3}/
 
 
                     var dataNodes = buckets.map(function (bucket) {
 
                         var result = $.grep(dataParsed, function (e) { 
 
-                        	console.log("E parameter is "+e.keyFirstNode);
+                        	//console.log("E parameter is "+e.keyFirstNode);
                         	return e.keyFirstNode == bucket[firstFirstBucketId]; });
 
 						console.log("Result initially"+  result);
@@ -325,6 +326,19 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
+
+
+
+                                else if(regexpattern5.test(dataParsed[i].keyFirstNode)){
+
+                                	relation2={
+                                		keyFireWall: fwnodes[4].key,
+										countMetric: bucket[nodeSizeId],
+                                    widthOfEdge: sizeEdgeVal
+                                }
+                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
+
+                                }
                                 console.log("Data parsed for "+ i + "Node");
                                 dataParsed[i].relationWithSecondNode.push(relation)
                                
@@ -384,7 +398,61 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
-                                dataParsed_node_exist.relationWithSecondNode.push(relation)
+                                dataParsed_node_exist.relationWithSecondNode.push(relation);
+
+                                 if(regexpattern.test(dataParsed[i].keyFirstNode)){
+
+                                	relation2={
+                                		keyFireWall: fwnodes[0].key,
+										countMetric: bucket[nodeSizeId],
+                                    widthOfEdge: sizeEdgeVal
+                                }
+                                	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
+
+                                }
+                                else if(regexpattern2.test(dataParsed[i].keyFirstNode)){
+
+                                	relation2={
+                                		keyFireWall: fwnodes[1].key,
+										countMetric: bucket[nodeSizeId],
+                                    widthOfEdge: sizeEdgeVal
+                                }
+                                	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
+
+                                }
+                                else if(regexpattern3.test(dataParsed[i].keyFirstNode)){
+
+                                	relation2={
+                                		keyFireWall: fwnodes[2].key,
+										countMetric: bucket[nodeSizeId],
+                                    widthOfEdge: sizeEdgeVal
+                                }
+                                	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
+
+                                }
+                                else if(regexpattern4.test(dataParsed[i].keyFirstNode)){
+
+                                	relation2={
+                                		keyFireWall: fwnodes[3].key,
+										countMetric: bucket[nodeSizeId],
+                                    widthOfEdge: sizeEdgeVal
+                                }
+                                	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
+
+                                }
+
+
+
+                                else if(regexpattern5.test(dataParsed[i].keyFirstNode)){
+
+                                	relation2={
+                                		keyFireWall: fwnodes[4].key,
+										countMetric: bucket[nodeSizeId],
+                                    widthOfEdge: sizeEdgeVal
+                                }
+                                	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
+
+                                }
                             }
                             return undefined
                         }
@@ -410,7 +478,11 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
                                     //Find in the relations the second node to relate
-                                    var nodeOfSecondType = $.grep(dataNodes, function (e) { return e.key == dataParsed[n].relationWithSecondNode[r].keySecondNode; });
+                                    var nodeOfSecondType = $.grep(dataNodes, function (e) { 
+
+                                    	console.log("Node of second type parameter"+e.key)
+
+                                    	return e.key == dataParsed[n].relationWithSecondNode[r].keySecondNode; });
                                     if (nodeOfSecondType.length == 0) {
                                         //Not found, added to the DataNodes - node of type 2
                                         i++;
