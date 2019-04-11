@@ -496,7 +496,10 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 };
                                 j++;
-                                  dataNodes.push(newf); 
+                                 dataNodes.push(newf); 
+                                     const uniqueValues=[...new Set(dataNodes.map(newf => newf.key))];
+                                    console.log(uniqueValues);
+                
                                   var edge = {
                                     from: result[0].id,
                                     to: dataNodes[dataNodes.length - 1].id,
