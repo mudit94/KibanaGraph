@@ -147,7 +147,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	key: "10.0.0.1",
                     	label: "10.0.0.1",
                     	shape: $scope.vis.params.shapeFirstNode,
-                    	color: $scope.vis.params.firstNodeColor
+                        color: $scope.vis.params.firstNodeColor,
+                        firstNodeKey:[]
 
                     },
 
@@ -155,22 +156,23 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	key: "10.1.0.1",
                     	label: "10.1.0.1",
                     	shape: $scope.vis.params.shapeFirstNode,
-                    	color: $scope.vis.params.firstNodeColor
+                        color: $scope.vis.params.firstNodeColor,
+                        firstNodeKey:[]
                     },
                     {
                     	key: "10.2.0.0",
                     	label: "10.2.0.0",
                     	shape: $scope.vis.params.shapeFirstNode,
-                    	color: $scope.vis.params.firstNodeColor
-                    
+                    	color: $scope.vis.params.firstNodeColor,
+                        firstNodeKey:[]
 
                     },
                     {
                     	key: "10.201.0.2",
                     	label: "10.201.0.2",
                     	shape: $scope.vis.params.shapeFirstNode,
-                    	color: $scope.vis.params.firstNodeColor
-                    
+                    	color: $scope.vis.params.firstNodeColor,
+                        firstNodeKey:[]
 
                     },
                     {
@@ -178,8 +180,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	label: "10.50.0.1",
 
                     	shape: $scope.vis.params.shapeFirstNode,
-                    	color: $scope.vis.params.firstNodeColor
-                 
+                    	color: $scope.vis.params.firstNodeColor,
+                        firstNodeKey:[]
 		             },
 		             {
 		             	key: "10.30.0.2",
@@ -187,7 +189,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                     	shape: $scope.vis.params.shapeFirstNode,
                     	color: $scope.vis.params.firstNodeColor
-                 
+                        
 		             },
 		            {
 		             key: "10.20.0.1",
@@ -286,17 +288,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 }
                                 	console.log(regexpattern.test(dataParsed[i].keyFirstNode));
                                 	var relation2={};
-                                if(regexpattern.test(dataParsed[i].keyFirstNode)){
-
-                                	relation2={
-                                		keyFireWall: fwnodes[0].key,
-										countMetric: bucket[nodeSizeId],
-                                    widthOfEdge: sizeEdgeVal
-                                }
-                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
-
-                                }
-                                else if(regexpattern2.test(dataParsed[i].keyFirstNode)){
+                                
+                              if(regexpattern2.test(dataParsed[i].keyFirstNode)){
 
                                 	relation2={
                                 		keyFireWall: fwnodes[1].key,
@@ -333,6 +326,16 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 	relation2={
                                 		keyFireWall: fwnodes[4].key,
+										countMetric: bucket[nodeSizeId],
+                                    widthOfEdge: sizeEdgeVal
+                                }
+                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
+
+                                }
+                                else{
+
+                                	relation2={
+                                		keyFireWall: fwnodes[0].key,
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
@@ -479,6 +482,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             //Found the node, access to its id
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                               if(dataParsed[n].relationsWithFirewallNode.length>0){
+                                  console.log("inside firewall printing node");
                                 var newf={
                                    id: j,
                                    key:dataParsed[n].relationsWithFirewallNode[0].key,
@@ -492,8 +496,14 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 };
                                 j++;
                                   dataNodes.push(newf); 
+                                  var edge = {
+                                    from: result[0].id,
+                                    to: dataNodes[dataNodes.length - 1].id,
+                                    value: dataParsed[n].relationWithSecondNode[r].widthOfEdge
+                                }
+                                dataEdges.push(edge);
                                }
-                               for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
+                            /*   for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
                                     //Find in the relations the second node to relate
                                     var nodeOfSecondType = $.grep(dataNodes, function (e) { 
 
@@ -535,7 +545,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     } else {
                                         console.log("Error: Multiples nodes with same id found");
                                     }
-                                }
+                               }*/
                             }
                         } else {
                             console.log("Error: Multiples nodes with same id found");
