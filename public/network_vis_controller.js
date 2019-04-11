@@ -469,6 +469,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     //Clean "undefined" in the array
                     dataNodes = dataNodes.filter(Boolean);
                     var dataEdges = [];
+                    var j=55;
                     for (var n = 0; n < dataParsed.length; n++) {
                         //Find in the array the node with the keyFirstNode
                         var result = $.grep(dataNodes, function (e) { return e.key == dataParsed[n].keyFirstNode; });
@@ -477,12 +478,22 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                         } else if (result.length == 1) {
                             //Found the node, access to its id
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
-                               for(var k=0;k<dataParsed[n].relationsWithFirewallNode.length;k++){
-                                   var fwNodes=$.grep(dataNodes,function(e){
-                                       console.log("E value for firwall node"+e.key);
-                                   });
+                              if(dataParsed[n].relationsWithFirewallNode.length>0){
+                                var newf={
+                                   id: j,
+                                   key:dataParsed[n].relationsWithFirewallNode[0].key,
+                                   label:dataParsed[n].relationsWithFirewallNode[0].key,
+                                   color: $scope.vis.params.secondNodeColor,
+                                            font: {
+                                                color: $scope.vis.params.labelColor
+                                            },
+                                            shape: $scope.vis.params.shapeSecondNode
+
+                                };
+                                j++;
+                                  dataNodes.push(newf); 
                                }
-                                for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
+                               for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
                                     //Find in the relations the second node to relate
                                     var nodeOfSecondType = $.grep(dataNodes, function (e) { 
 
@@ -502,6 +513,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                             },
                                             shape: $scope.vis.params.shapeSecondNode
                                         };
+                                        console.log("New node is "+newNode);
                                         //Add new node
                                         dataNodes.push(newNode);
                                         //And create the relation (edge)
