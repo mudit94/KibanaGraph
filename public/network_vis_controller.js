@@ -498,7 +498,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 j++;
                                  dataNodes.push(newf); 
                                      const uniqueValues=[...new Set(dataNodes.map(newf => newf.key))];
-                                    console.log(uniqueValues);
+                                    console.log("Unique objects are "+uniqueValues);
                 
                                   var edge = {
                                     from: result[0].id,
