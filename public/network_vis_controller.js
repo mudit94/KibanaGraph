@@ -480,6 +480,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             console.log("Error: Node not found");
                         } else if (result.length == 1) {
                             //Found the node, access to its id
+                            console.log(dataParsed[n].relationsWithFirewallNode.length);
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                               if(dataParsed[n].relationsWithFirewallNode.length>0){
                                   console.log("inside firewall printing node");
