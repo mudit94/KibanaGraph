@@ -497,12 +497,12 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 };
                                 j++;
                                 dataNodes.push(newf); 
-                                const result = [];
+                                const res = [];
                             const map = new Map();
                             for (const item of dataNodes) {
                                     if(!map.has(item.key)){
                                             map.set(item.key, true);    // set any value to Map
-                                                         result.push({
+                                                         res.push({
                                                             id: item.id,
                                                             key: item.key,
                                                             color: item.color,
@@ -513,7 +513,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 }
                                   var edge = {
                                     from: result[0].id,
-                                    to: dataNodes[result.length - 1].id,
+                                    to: dataNodes[res.length - 1].id,
                                     value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
                                 }
                                 dataEdges.push(edge);
@@ -570,7 +570,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
 
                     //////////////////////////////////////////////////////////Creation of the network with the library//////////////////////////////////////////////////////////
-                    var nodesDataSet = new visN.DataSet(result);
+                    var nodesDataSet = new visN.DataSet(res);
                     var edgesDataSet = new visN.DataSet(dataEdges);
 
                     //var container = document.getElementById(network_id);
