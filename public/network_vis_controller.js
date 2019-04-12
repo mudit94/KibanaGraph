@@ -471,7 +471,6 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     ///////////////////////////////////////////////////////////////////////BUILDING EDGES///////////////////////////////////////////////////////////////////////
                     //Clean "undefined" in the array
                     dataNodes = dataNodes.filter(Boolean);
-                    d=d.filter(Boolean);
                     var dataEdges = [];
                     var j=55;
                     for (var n = 0; n < dataParsed.length; n++) {
@@ -499,7 +498,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 j++;
                                 cons
                                 dataNodes.push(newf); 
-                                const result = result.filter(Boolean);
+                                const result = [];
                             const map = new Map();
                             for (const item of dataNodes) {
                                     if(!map.has(item.key)){
