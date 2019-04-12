@@ -496,7 +496,6 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 };
                                 j++;
-                                cons
                                 dataNodes.push(newf); 
                                 const result = [];
                             const map = new Map();
