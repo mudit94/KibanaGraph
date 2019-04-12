@@ -208,7 +208,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var regexpattern3=/113\.38\.230\.[0-9]{1,3}/
                     var regexpattern4=/120\.56\.165\.[0-9]{1,3}/
                     var regexpattern5=/122\.113\.143\.[0-9]{1,3}/
-
+                    var res = [];
 
                     var dataNodes = buckets.map(function (bucket) {
 
@@ -497,7 +497,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 };
                                 j++;
                                 dataNodes.push(newf); 
-                                const res = [];
+                        
                             const map = new Map();
                             for (const item of dataNodes) {
                                     if(!map.has(item.key)){
