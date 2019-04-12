@@ -471,6 +471,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     ///////////////////////////////////////////////////////////////////////BUILDING EDGES///////////////////////////////////////////////////////////////////////
                     //Clean "undefined" in the array
                     dataNodes = dataNodes.filter(Boolean);
+                    d=d.filter(Boolean);
                     var dataEdges = [];
                     var j=55;
                     for (var n = 0; n < dataParsed.length; n++) {
@@ -496,13 +497,25 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 };
                                 j++;
-                                 dataNodes.push(newf); 
-                                     const uniqueValues=[...new Set(dataNodes.map(newf => newf.key))];
-                                    console.log("Unique objects are "+uniqueValues);
-                
+                                cons
+                                dataNodes.push(newf); 
+                                const result = result.filter(Boolean);
+                            const map = new Map();
+                            for (const item of dataNodes) {
+                                    if(!map.has(item.key)){
+                                            map.set(item.key, true);    // set any value to Map
+                                                         result.push({
+                                                            id: item.id,
+                                                            key: item.key,
+                                                            color: item.color,
+                                                            font:item.font,
+                                                            shape:item.font
+        });
+    }
+}
                                   var edge = {
                                     from: result[0].id,
-                                    to: dataNodes[dataNodes.length - 1].id,
+                                    to: dataNodes[result.length - 1].id,
                                     value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
                                 }
                                 dataEdges.push(edge);
@@ -559,7 +572,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
 
                     //////////////////////////////////////////////////////////Creation of the network with the library//////////////////////////////////////////////////////////
-                    var nodesDataSet = new visN.DataSet(dataNodes);
+                    var nodesDataSet = new visN.DataSet(result);
                     var edgesDataSet = new visN.DataSet(dataEdges);
 
                     //var container = document.getElementById(network_id);
