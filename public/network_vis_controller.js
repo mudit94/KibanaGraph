@@ -208,7 +208,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var regexpattern3=/113\.38\.230\.[0-9]{1,3}/
                     var regexpattern4=/120\.56\.165\.[0-9]{1,3}/
                     var regexpattern5=/122\.113\.143\.[0-9]{1,3}/
-                    var res = [];
+
 
                     var dataNodes = buckets.map(function (bucket) {
 
@@ -406,57 +406,44 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 //console.log(dataParsed[i].keyFirstNode);
                                 /*if(regexpattern.test(dataParsed_node_exist.relationsWithFirewallNode.key)){
-
                                 	relation2={
                                 		keyFireWall: fwnodes[0].key,
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
                                 	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
-
                                 }
                                 else if(regexpattern2.test(dataParsed_node_exist.relationsWithFirewallNode.key)){
-
                                 	relation2={
                                 		keyFireWall: fwnodes[1].key,
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
                                 	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
-
                                 }
                                 else if(regexpattern3.test(dataParsed[i].keyFirstNode)){
-
                                 	relation2={
                                 		keyFireWall: fwnodes[2].key,
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
                                 	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
-
                                 }
                                 else if(regexpattern4.test(dataParsed[i].keyFirstNode)){
-
                                 	relation2={
                                 		keyFireWall: fwnodes[3].key,
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
                                 	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
-
                                 }
-
-
-
                                 else if(regexpattern5.test(dataParsed[i].keyFirstNode)){
-
                                 	relation2={
                                 		keyFireWall: fwnodes[4].key,
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
                                 	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
-
                                 }*/
                             }
                             return undefined
@@ -485,6 +472,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                               if(dataParsed[n].relationsWithFirewallNode.length>0){
                                   console.log("inside firewall printing node");
                                 var newf={
+                                   id: j,
                                    key:dataParsed[n].relationsWithFirewallNode[0].keyFireWall,
                                    label:dataParsed[n].relationsWithFirewallNode[0].keyFireWall,
                                    color: $scope.vis.params.secondNodeColor,
@@ -495,12 +483,10 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 };
                                 j++;
-                                dataNodes.push(newf); 
-                        
-                            const map = new Map();
-                            for (const item of dataNodes) {
-                   console.log(item.key);
-}
+                                 dataNodes.push(newf); 
+                                    //  const uniqueValues=[...new Set(dataNodes.map(newf => newf.key))];
+                                    // console.log(uniqueValues);
+                
                                   var edge = {
                                     from: result[0].id,
                                     to: dataNodes[dataNodes.length - 1].id,
@@ -511,9 +497,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             /*   for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
                                     //Find in the relations the second node to relate
                                     var nodeOfSecondType = $.grep(dataNodes, function (e) { 
-
                                     	console.log("Node of second type parameter"+e.key)
-
                                     	return e.key == dataParsed[n].relationWithSecondNode[r].keySecondNode; });
                                     if (nodeOfSecondType.length == 0) {
                                         //Not found, added to the DataNodes - node of type 2
@@ -538,7 +522,6 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                             value: dataParsed[n].relationWithSecondNode[r].widthOfEdge
                                         }
                                         dataEdges.push(edge);
-
                                     } else if (nodeOfSecondType.length == 1) {
                                         //The node exists, creates only the edge
                                         var enlace = {
