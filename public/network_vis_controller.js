@@ -500,7 +500,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                         
                             const map = new Map();
                             for (const item of dataNodes) {
-                                  console.log(item);}
+                   console.log(item.key);
 }
                                   var edge = {
                                     from: result[0].id,
