@@ -459,7 +459,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     //Clean "undefined" in the array
                     dataNodes = dataNodes.filter(Boolean);
                     var dataEdges = [];
-                    var j=55;
+                    
                     for (var n = 0; n < dataParsed.length; n++) {
                         //Find in the array the node with the keyFirstNode
                         var result = $.grep(dataNodes, function (e) { return e.key == dataParsed[n].keyFirstNode; });
@@ -471,7 +471,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                               if(dataParsed[n].relationsWithFirewallNode.length>0){
                                   console.log("inside firewall printing node");
-                                var newf={
+                                  var j=55;
+                                  var newf={
                                    id: j,
                                    key:dataParsed[n].relationsWithFirewallNode[0].keyFireWall,
                                    label:dataParsed[n].relationsWithFirewallNode[0].keyFireWall,
@@ -486,7 +487,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                  dataNodes.push(newf); 
                                     //  const uniqueValues=[...new Set(dataNodes.map(newf => newf.key))];
                                     // console.log(uniqueValues);
-                
+                                console.log(result[0]);
                                   var edge = {
                                     from: result[0].id,
                                     to: dataNodes[dataNodes.length - 1].id,
