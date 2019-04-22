@@ -483,7 +483,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                             shape: $scope.vis.params.shapeSecondNode
 
                                 };
-                                j++;
+                               // j++;
                                  dataNodes.push(newf); 
                                     //  const uniqueValues=[...new Set(dataNodes.map(newf => newf.key))];
                                     // console.log(uniqueValues);
