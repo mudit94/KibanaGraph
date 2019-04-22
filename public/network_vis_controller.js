@@ -485,7 +485,6 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                               if(dataParsed[n].relationsWithFirewallNode.length>0){
                                   console.log("inside firewall printing node");
                                 var newf={
-                                   id: j,
                                    key:dataParsed[n].relationsWithFirewallNode[0].keyFireWall,
                                    label:dataParsed[n].relationsWithFirewallNode[0].keyFireWall,
                                    color: $scope.vis.params.secondNodeColor,
