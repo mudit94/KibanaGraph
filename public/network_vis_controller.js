@@ -471,7 +471,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                               if(dataParsed[n].relationsWithFirewallNode.length>0){
                                   console.log("inside firewall printing node");
-                                  var j=55;
+                                  var j=55+n;
                                   var newf={
                                    id: j,
                                    key:dataParsed[n].relationsWithFirewallNode[0].keyFireWall,
