@@ -342,11 +342,17 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
+                                   if(dataParsed[i].relationsWithFirewallNode.length>=1){
+                                        console.log("Firewall key"+dataParsed[i].relationsWithFirewallNode.keyFireWall);
+                                    }
+                                }
+                                fwnodes[r].firstNodeKey[i]=dataParsed[i].
                                 console.log("Data parsed for "+ i + "Node");
                                 dataParsed[i].relationWithSecondNode.push(relation)
                                
                                 console.log(dataParsed[i]);
                             }
+
 
                             //assigning color and the content of the popup
                             var inPopup = "<p>" + bucket[firstFirstBucketId] + "</p>"
