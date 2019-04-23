@@ -86,7 +86,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                 }
             });
             console.log("First bucket Id is "+firstFirstBucketId);
-            console.log("Second bucket Id is"+secondBucketId);
+            console.log("Second bucket Id is"+firstSecondBucketId);
 
             ///// It is neccessary to add Timeout in order to have more than 1 net in the same dashboard
             $timeout(function () {
@@ -148,7 +148,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	label: "10.0.0.1",
                     	shape: $scope.vis.params.shapeFirstNode,
                         color: $scope.vis.params.firstNodeColor,
-                        firstNodeKey:[]
+                        firstNodeKey:[],
+                        secondNodeKey:[]
 
                     },
 
@@ -157,14 +158,16 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	label: "10.1.0.1",
                     	shape: $scope.vis.params.shapeFirstNode,
                         color: $scope.vis.params.firstNodeColor,
-                        firstNodeKey:[]
+                        firstNodeKey:[],
+                        secondNodeKey:[]
                     },
                     {
                     	key: "10.2.0.0",
                     	label: "10.2.0.0",
                     	shape: $scope.vis.params.shapeFirstNode,
                     	color: $scope.vis.params.firstNodeColor,
-                        firstNodeKey:[]
+                        firstNodeKey:[],
+                        secondNodeKey:[]
 
                     },
                     {
@@ -172,7 +175,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	label: "10.201.0.2",
                     	shape: $scope.vis.params.shapeFirstNode,
                     	color: $scope.vis.params.firstNodeColor,
-                        firstNodeKey:[]
+                        firstNodeKey:[],
+                        secondNodeKey:[]
 
                     },
                     {
@@ -181,21 +185,23 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                     	shape: $scope.vis.params.shapeFirstNode,
                     	color: $scope.vis.params.firstNodeColor,
-                        firstNodeKey:[]
+                        firstNodeKey:[],
+                        secondNodeKey:[]
 		             },
 		             {
 		             	key: "10.30.0.2",
 		             	label: "10.30.0.2",
 
                     	shape: $scope.vis.params.shapeFirstNode,
-                    	color: $scope.vis.params.firstNodeColor
-                        
+                    	color: $scope.vis.params.firstNodeColor,
+                        secondNodeKey:[],
 		             },
 		            {
 		             key: "10.20.0.1",
 		             	label: "10.20.0.1",
                     	shape: $scope.vis.params.shapeFirstNode,
-                    	color: $scope.vis.params.firstNodeColor
+                        color: $scope.vis.params.firstNodeColor,
+                        secondNodeKey:[]
 					}                 
 
 
@@ -296,7 +302,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
-                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
+                                //	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
                                 else if(regexpattern3.test(dataParsed[i].keyFirstNode)){
@@ -306,7 +312,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
-                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
+                                //	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
                                 else if(regexpattern4.test(dataParsed[i].keyFirstNode)){
@@ -316,7 +322,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
-                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
+                                //	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
 
@@ -329,7 +335,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
-                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
+                                	// dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
                                 else{
@@ -339,13 +345,14 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
-                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
+                                	 //dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
-                                        console.log("Firewall key"+dataParsed[i].relationsWithFirewallNode.keyFireWall);
+                                dataParsed[i].relationsWithFirewallNode.push(relation2);        
+                                console.log("Firewall key"+dataParsed[i].relationsWithFirewallNode.keyFireWall);
                                     
                                 }
-                                fwnodes[r].firstNodeKey[i]=dataParsed[i].
+                                //fwnodes[r].firstNodeKey[i]=dataParsed[i].
                                 console.log("Data parsed for "+ i + "Node");
                                 dataParsed[i].relationWithSecondNode.push(relation)
                                
