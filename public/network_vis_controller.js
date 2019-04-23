@@ -140,7 +140,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var fw5=[];
                     var fw6=[];
                     var fw7=[];
-
+                    var dataParsed2 =[];
                     //making static nodes array
                     var fwnodes=[{
 
@@ -222,7 +222,11 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                         	//console.log("E parameter is "+e.keyFirstNode);
                         	return e.keyFirstNode == bucket[firstFirstBucketId]; });
+                            var result2=$.grep(dataParsed2, function(e){
 
+                                return e.keySecondNode==bucket[firstSecondBucketId];
+                            });
+                            console.log(result2.length);
 						//console.log("Result initially"+  result);
 						
                         if (result.length == 0) {
@@ -416,7 +420,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 }
                                 dataParsed_node_exist.relationWithSecondNode.push(relation);
 
-                                console.log(dataParsed[i].keyFirstNode);
+                             //   console.log(dataParsed[i].keyFirstNode);
                                 if(regexpattern.test(dataParsed_node_exist.relationsWithFirewallNode.keyFireWall)){
                                 	relation2={
                                 		keyFireWall: fwnodes[0].key,
