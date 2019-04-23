@@ -350,7 +350,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 dataParsed[i].relationWithSecondNode.push(relation)
                                
                                 console.log(dataParsed[i]);
-                            }
+                            
 
 
                             //assigning color and the content of the popup
