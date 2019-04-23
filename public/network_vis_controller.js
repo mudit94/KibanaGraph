@@ -223,7 +223,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                         	//console.log("E parameter is "+e.keyFirstNode);
                         	return e.keyFirstNode == bucket[firstFirstBucketId]; });
                             var result2=$.grep(dataParsed2, function(e){
-
+                                console.log("E key second "+e.keySecondNode);
+                                console.log("E key first"+e.keyFirstNode);
                                 return e.keySecondNode==bucket[firstSecondBucketId];
                             });
                             console.log(result2.length);
