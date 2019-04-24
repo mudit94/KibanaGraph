@@ -305,7 +305,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 	relation2={
                                 		keyFireWall: fwnodes[1].key,
 										countMetric: bucket[nodeSizeId],
-                                    widthOfEdge: sizeEdgeVal
+                                    widthOfEdge: sizeEdgeVal,
+                                    firstKey: dataParsed[i].keyFirstNode
                                 }
                                 //	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
@@ -315,7 +316,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 	relation2={
                                 		keyFireWall: fwnodes[2].key,
 										countMetric: bucket[nodeSizeId],
-                                    widthOfEdge: sizeEdgeVal
+                                    widthOfEdge: sizeEdgeVal,
+                                    firstKey: dataParsed[i].keyFirstNode
                                 }
                                 //	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
@@ -325,7 +327,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 	relation2={
                                 		keyFireWall: fwnodes[3].key,
 										countMetric: bucket[nodeSizeId],
-                                    widthOfEdge: sizeEdgeVal
+                                    widthOfEdge: sizeEdgeVal,
+                                    firstKey: dataParsed[i].keyFirstNode
                                 }
                                 //	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
@@ -338,7 +341,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 	relation2={
                                 		keyFireWall: fwnodes[4].key,
 										countMetric: bucket[nodeSizeId],
-                                    widthOfEdge: sizeEdgeVal
+                                    widthOfEdge: sizeEdgeVal,
+                                    firstKey: dataParsed[i].keyFirstNode
                                 }
                                 	// dataParsed[i].relationsWithFirewallNode.push(relation2);
 
@@ -348,7 +352,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 	relation2={
                                 		keyFireWall: fwnodes[0].key,
 										countMetric: bucket[nodeSizeId],
-                                    widthOfEdge: sizeEdgeVal
+                                    widthOfEdge: sizeEdgeVal,
+                                    firstKey: dataParsed[i].keyFirstNode
                                 }
                                 	 //dataParsed[i].relationsWithFirewallNode.push(relation2);
 
@@ -405,7 +410,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             //Repetido el nodo, solo añadimos sus relaciones
                             var dataParsed_node_exist = result[0]
                             //Iterate rows and choose the edge size
-                            console.log("Data Parsed exist"+dataParsed_node_exist[0]);
+                            console.log("Data Parsed exist"+dataParsed_node_exist);
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                                 if (metricsAgg_sizeEdge) {
                                     var value_sizeEdge = bucket[edgeSizeId];
@@ -462,6 +467,14 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 }
                                 	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
                                 }
+                                else{
+                                    relation2={
+                                		keyFireWall: fwnodes[0].key,
+										countMetric: bucket[nodeSizeId],
+                                    widthOfEdge: sizeEdgeVal
+                                }
+                                	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
+                                }
                             }
                             return undefined
                         }
@@ -476,7 +489,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     //Clean "undefined" in the array
                     dataNodes = dataNodes.filter(Boolean);
                     var dataEdges = [];
-                    
+                    var visited=[]
                     for (var n = 0; n < dataParsed.length; n++) {
                         //Find in the array the node with the keyFirstNode
                         var result = $.grep(dataNodes, function (e) { return e.key == dataParsed[n].keyFirstNode; });
@@ -488,7 +501,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                               if(dataParsed[n].relationsWithFirewallNode.length>0){
                                   console.log("inside firewall printing node");
-                                  var j=55+n;
+                                  
                                   var newf={
                                    id: j,
                                    key:dataParsed[n].relationsWithFirewallNode[0].keyFireWall,
