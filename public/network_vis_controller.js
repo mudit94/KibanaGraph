@@ -503,9 +503,9 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     //Find in the relations the second node to relate
                                     var nodeOfFirewallType = $.grep(dataNodes, function(e){ return e.key == dataParsed[n].relationsWithFirewallNode[r].keyFirstNode; });
                                 if(nodeOfFirewallType.length==0){
-                                    
+                                    i++;
                                   var newf={
-                                   id: j,
+                                   id: i,
                                    key:dataParsed[n].relationsWithFirewallNode[0].keyFireWall,
                                    label:dataParsed[n].relationsWithFirewallNode[0].keyFireWall,
                                    color: $scope.vis.params.secondNodeColor,
