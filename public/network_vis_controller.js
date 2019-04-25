@@ -149,7 +149,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	shape: $scope.vis.params.shapeFirstNode,
                         color: $scope.vis.params.firstNodeColor,
                         firstNodeKey:[],
-                        
+                        secondNodeKey:[]
 
                     },
 
@@ -159,7 +159,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	shape: $scope.vis.params.shapeFirstNode,
                         color: $scope.vis.params.firstNodeColor,
                         firstNodeKey:[],
-                        
+                        secondNodeKey:[]
                     },
                     {
                     	key: "10.2.0.0",
@@ -167,7 +167,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	shape: $scope.vis.params.shapeFirstNode,
                     	color: $scope.vis.params.firstNodeColor,
                         firstNodeKey:[],
-                        
+                        secondNodeKey:[]
 
                     },
                     {
@@ -176,7 +176,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	shape: $scope.vis.params.shapeFirstNode,
                     	color: $scope.vis.params.firstNodeColor,
                         firstNodeKey:[],
-                        
+                        secondNodeKey:[]
 
                     },
                     {
@@ -186,7 +186,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	shape: $scope.vis.params.shapeFirstNode,
                     	color: $scope.vis.params.firstNodeColor,
                         firstNodeKey:[],
-                        
+                        secondNodeKey:[]
 		             },
 		             {
 		             	key: "10.30.0.2",
@@ -194,14 +194,14 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                     	shape: $scope.vis.params.shapeFirstNode,
                     	color: $scope.vis.params.firstNodeColor,
-                        
+                        secondNodeKey:[],
 		             },
 		            {
 		             key: "10.20.0.1",
 		             	label: "10.20.0.1",
                     	shape: $scope.vis.params.shapeFirstNode,
                         color: $scope.vis.params.firstNodeColor,
-                        
+                        secondNodeKey:[]
 					}                 
 
 
@@ -224,7 +224,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                         	return e.keyFirstNode == bucket[firstFirstBucketId]; });
                             var result2=$.grep(dataParsed2, function(e){
                                 console.log("E key second "+e.keySecondNode);
-                                //console.log("E key first"+e.keyFirstNode);
+                                console.log("E key first"+e.keyFirstNode);
                                 return e.keySecondNode==bucket[firstSecondBucketId];
                             });
                             console.log(result2.length);
@@ -237,7 +237,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             dataParsed[i] = {};
 
                             dataParsed[i].keyFirstNode = bucket[firstFirstBucketId];
-                            dataParsed[i].keySecondNode=bucket[firstSecondBucketId];
+
                             //Metrics are for the sizes
                             if (metricsAgg_sizeNode) {
                                 // Use the getValue function of the aggregation to get the value of a bucket
@@ -264,9 +264,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             if (!dataParsed[i].relationWithSecondNode) {
                                 dataParsed[i].relationWithSecondNode = [];
                             }
-                            // if(!fwnodes[i].secondNodeKey){
-                            //     fwnodes[i].secondNodeKey=[];
-                            // }
+
 
                             //Iterate rows and choose the edge size
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
@@ -296,13 +294,12 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                     }
                                 }
-                                console.log("Fwnode "+i+fwnodes[i]);
+
                                 var relation = {
                                     keySecondNode: bucket[firstSecondBucketId],
                                     countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
-                                fwnodes[i].secondNodeKey.push(relation);
                                 	console.log(regexpattern.test(dataParsed[i].keyFirstNode));
                                 	var relation2={};
                                 
@@ -365,7 +362,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 }
                                 dataParsed[i].relationsWithFirewallNode.push(relation2);        
-                               // console.log("Firewall key"+dataParsed[i].relationsWithFirewallNode.keyFireWall);
+                                console.log("Firewall key"+dataParsed[i].relationsWithFirewallNode.keyFireWall);
                                     
                                 }
                                 //fwnodes[r].firstNodeKey[i]=dataParsed[i].
@@ -498,15 +495,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var visited=[]
                     for (var n = 0; n < dataParsed.length; n++) {
                         //Find in the array the node with the keyFirstNode
-                        
                         var result = $.grep(dataNodes, function (e) { return e.key == dataParsed[n].keyFirstNode; });
-                        var res2=$.grep(dataNodes,function(e){
-                            return e.key==dataParsed[n].keySecondNode;
-                        });
-                        if(res2.length==0){
-                            console.log("error node not found");
-                        }
-        
                         if (result.length == 0) {
                             console.log("Error: Node not found");
                         } else if (result.length == 1) {
@@ -594,7 +583,6 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                         } else {
                             console.log("Error: Multiples nodes with same id found");
                         }
-                        
                     }
                     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
