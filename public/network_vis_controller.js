@@ -130,7 +130,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	//console.log("Second field agg id "+secondFieldAggId);
                     // Get the buckets of that aggregation
                     var buckets = resp.rows;
-					console.log(buckets);
+					//console.log(buckets);
                     ///////////////////////////////////////////////////////////////DATA PARSED AND BUILDING NODES///////////////////////////////////////////////////////////////
                     var dataParsed = [];
                     var fw1=[];
@@ -190,7 +190,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 		             },
 		             {
 		             	key: "10.30.0.2",
-		             	label: "10.30.0.2",
+		             	label: "10.30.mumc0.2",
 
                     	shape: $scope.vis.params.shapeFirstNode,
                     	color: $scope.vis.params.firstNodeColor,
@@ -507,6 +507,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 for(var r = 0; r<dataParsed[n].relationsWithFirewallNode.length; r++){
                                     //Find in the relations the second node to relate
                                     var nodeOfFirewallType = $.grep(dataNodes, function(e){ return e.key == dataParsed[n].relationsWithFirewallNode[r].keyFirstNode; });
+                                    console.log("Node of firewall type "+nodeOfFirewallType[n]);
                                 if(nodeOfFirewallType.length==0){
                                     i++;
                                   var newf={
