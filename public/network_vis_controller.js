@@ -264,9 +264,9 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             if (!dataParsed[i].relationWithSecondNode) {
                                 dataParsed[i].relationWithSecondNode = [];
                             }
-                            if(!fwnodes[i].secondNodeKey){
-                                fwnodes[i].secondNodeKey=[];
-                            }
+                            // if(!fwnodes[i].secondNodeKey){
+                            //     fwnodes[i].secondNodeKey=[];
+                            // }
 
                             //Iterate rows and choose the edge size
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
