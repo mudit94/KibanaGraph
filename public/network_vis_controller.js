@@ -85,8 +85,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     edgeSizeId = col.id
                 }
             });
-            console.log("First bucket Id is "+firstFirstBucketId);
-            console.log("Second bucket Id is"+firstSecondBucketId);
+            // console.log("First bucket Id is "+firstFirstBucketId);
+            // console.log("Second bucket Id is"+firstSecondBucketId);
 
             ///// It is neccessary to add Timeout in order to have more than 1 net in the same dashboard
             $timeout(function () {
@@ -311,7 +311,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     widthOfEdge: sizeEdgeVal,
                                     firstKey: dataParsed[i].keyFirstNode
                                 }
-                                //	 dataParsed[i].relationsWithFirewallNode.push(relation2);
+                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
                                 else if(regexpattern3.test(dataParsed[i].keyFirstNode)){
@@ -322,7 +322,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     widthOfEdge: sizeEdgeVal,
                                     firstKey: dataParsed[i].keyFirstNode
                                 }
-                                //	 dataParsed[i].relationsWithFirewallNode.push(relation2);
+                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
                                 else if(regexpattern4.test(dataParsed[i].keyFirstNode)){
@@ -333,7 +333,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     widthOfEdge: sizeEdgeVal,
                                     firstKey: dataParsed[i].keyFirstNode
                                 }
-                                //	 dataParsed[i].relationsWithFirewallNode.push(relation2);
+                                	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
 
@@ -347,7 +347,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     widthOfEdge: sizeEdgeVal,
                                     firstKey: dataParsed[i].keyFirstNode
                                 }
-                                	// dataParsed[i].relationsWithFirewallNode.push(relation2);
+                                 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
                                 else{
@@ -358,10 +358,10 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     widthOfEdge: sizeEdgeVal,
                                     firstKey: dataParsed[i].keyFirstNode
                                 }
-                                	 //dataParsed[i].relationsWithFirewallNode.push(relation2);
+                                dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
-                                dataParsed[i].relationsWithFirewallNode.push(relation2);        
+                                //dataParsed[i].relationsWithFirewallNode.push(relation2);        
                                 console.log("Firewall key"+dataParsed[i].relationsWithFirewallNode.keyFireWall);
                                     
                                 }
