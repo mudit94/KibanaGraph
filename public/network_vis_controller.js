@@ -437,6 +437,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
+                                console.log("inside condition 1");
                                 	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
                                 }
                                 else if(regexpattern2.test(dataParsed_node_exist.relationsWithFirewallNode.keyFireWall)){
