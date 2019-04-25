@@ -209,9 +209,9 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                     // Iterate the buckets
                     var i = 0;
-                    var regexpattern=/37\.71\.108\.[0-9]{1,3}/
-                    var regexpattern2=/77\.84\.169\.[0-9]{1,3}/
-                    var regexpattern3=/113\.38\.230\.[0-9]{1,3}/
+                    var regexpattern1=/50\.184\.59\.[0-9]{1,3}/
+                    var regexpattern2=/30\.65\.26\.[0-9]{1,3}/
+                    var regexpattern3=/41\.24\.121\.[0-9]{1,3}/
                     var regexpattern4=/120\.56\.165\.[0-9]{1,3}/
                     var regexpattern5=/122\.113\.143\.[0-9]{1,3}/
 
@@ -300,10 +300,10 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
-                                	console.log(regexpattern.test(dataParsed[i].keyFirstNode));
+                                //	console.log(regexpattern.test(dataParsed[i].keyFirstNode));
                                 	var relation2={};
                                 
-                              if(regexpattern2.test(dataParsed[i].keyFirstNode)){
+                              if(regexpattern1.test(dataParsed[i].keyFirstNode)){
 
                                 	relation2={
                                 		keyFireWall: fwnodes[1].key,
@@ -314,7 +314,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
-                                else if(regexpattern3.test(dataParsed[i].keyFirstNode)){
+                                else if(regexpattern2.test(dataParsed[i].keyFirstNode)){
 
                                 	relation2={
                                 		keyFireWall: fwnodes[2].key,
@@ -325,7 +325,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
-                                else if(regexpattern4.test(dataParsed[i].keyFirstNode)){
+                                else if(regexpattern3.test(dataParsed[i].keyFirstNode)){
 
                                 	relation2={
                                 		keyFireWall: fwnodes[3].key,
@@ -339,7 +339,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
 
 
-                                else if(regexpattern5.test(dataParsed[i].keyFirstNode)){
+                                else if(regexpattern4.test(dataParsed[i].keyFirstNode)){
 
                                 	relation2={
                                 		keyFireWall: fwnodes[4].key,
@@ -430,15 +430,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 dataParsed_node_exist.relationWithSecondNode.push(relation);
 
                              //   console.log(dataParsed[i].keyFirstNode);
-                                if(regexpattern.test(dataParsed_node_exist.relationsWithFirewallNode.keyFireWall)){
-                                	relation2={
-                                		keyFireWall: fwnodes[0].key,
-										countMetric: bucket[nodeSizeId],
-                                    widthOfEdge: sizeEdgeVal
-                                }
-                                	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
-                                }
-                                else if(regexpattern2.test(dataParsed_node_exist.relationsWithFirewallNode.keyFireWall)){
+                                if(regexpattern1.test(dataParsed_node_exist.relationsWithFirewallNode.keyFireWall)){
                                 	relation2={
                                 		keyFireWall: fwnodes[1].key,
 										countMetric: bucket[nodeSizeId],
@@ -446,9 +438,17 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 }
                                 	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
                                 }
-                                else if(regexpattern3.test(dataParsed_node_exist.relationsWithFirewallNode.keyFireWall)){
+                                else if(regexpattern2.test(dataParsed_node_exist.relationsWithFirewallNode.keyFireWall)){
                                 	relation2={
                                 		keyFireWall: fwnodes[2].key,
+										countMetric: bucket[nodeSizeId],
+                                    widthOfEdge: sizeEdgeVal
+                                }
+                                	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
+                                }
+                                else if(regexpattern3.test(dataParsed_node_exist.relationsWithFirewallNode.keyFireWall)){
+                                	relation2={
+                                		keyFireWall: fwnodes[3].key,
 										countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
                                 }
@@ -462,7 +462,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 }
                                 	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
                                 }
-                                else if(regexpattern5.test(dataParsed_node_exist.relationsWithFirewallNode.keyFireWall)){
+                                else if(regexpattern4.test(dataParsed_node_exist.relationsWithFirewallNode.keyFireWall)){
                                 	relation2={
                                 		keyFireWall: fwnodes[4].key,
 										countMetric: bucket[nodeSizeId],
