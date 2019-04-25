@@ -311,6 +311,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     widthOfEdge: sizeEdgeVal,
                                     firstKey: dataParsed[i].keyFirstNode
                                 }
+                                console.log("inside 1st pattern check");
                                 	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
