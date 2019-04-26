@@ -224,7 +224,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                         	return e.keyFirstNode == bucket[firstFirstBucketId]; });
                             var result2=$.grep(dataParsed2, function(e){
                                 console.log("E key second "+e.keySecondNode);
-                                console.log("E key first"+e.keyFirstNode);
+                               // console.log("E key first"+e.keyFirstNode);
                                 return e.keySecondNode==bucket[firstSecondBucketId];
                             });
                             console.log(result2.length);
@@ -363,7 +363,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 }
                                 //dataParsed[i].relationsWithFirewallNode.push(relation2);        
-                                console.log("Firewall key"+dataParsed[i].relationsWithFirewallNode.keyFireWall);
+                              //  console.log("Firewall key"+dataParsed[i].relationsWithFirewallNode.keyFireWall);
                                     
                                 }
                                 //fwnodes[r].firstNodeKey[i]=dataParsed[i].
@@ -431,7 +431,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 dataParsed_node_exist.relationWithSecondNode.push(relation);
 
                              //   console.log(dataParsed[i].keyFirstNode);
-                                if(regexpattern1.test(dataParsed_node_exist.relationsWithFirewallNode.keyFireWall)){
+                           /*     if(regexpattern1.test(dataParsed_node_exist.relationsWithFirewallNode.keyFireWall)){
                                 	relation2={
                                 		keyFireWall: fwnodes[1].key,
 										countMetric: bucket[nodeSizeId],
@@ -479,7 +479,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     widthOfEdge: sizeEdgeVal
                                 }
                                 	 dataParsed_node_exist.relationsWithFirewallNode.push(relation2);
-                                }
+                                }*/
                             }
                             return undefined
                         }
@@ -507,7 +507,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 for(var r = 0; r<dataParsed[n].relationsWithFirewallNode.length; r++){
                                     //Find in the relations the second node to relate
                                     var nodeOfFirewallType = $.grep(dataNodes, function(e){ return e.key == dataParsed[n].relationsWithFirewallNode[r].keyFirstNode; });
-                                    console.log("Node of firewall type "+nodeOfFirewallType[n]);
+                                    console.log("Node of firewall type "+nodeOfFirewallType);
                                 if(nodeOfFirewallType.length==0){
                                     i++;
                                   var newf={
