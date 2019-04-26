@@ -89,7 +89,6 @@ function NetworkVisTypeProvider(Private) {
           mustBeFirst: 'true',
           title: 'Node',
           min: 1,
-          max: 2,
           aggFilter: ['terms']//Only have sense choose terms
         },
         {
@@ -97,9 +96,10 @@ function NetworkVisTypeProvider(Private) {
           name: 'second',
           icon: 'fa fa-random',
           title: 'Relation',
-          max: 1,
+          min:1,
           aggFilter: ['terms']
         },
+        
         {
           group: 'buckets',
           name: 'colornode',

@@ -190,7 +190,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 		             },
 		             {
 		             	key: "10.30.0.2",
-		             	label: "10.30.mumc0.2",
+		             	label: "10.30.0.2",
 
                     	shape: $scope.vis.params.shapeFirstNode,
                     	color: $scope.vis.params.firstNodeColor,
@@ -506,7 +506,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                                 for(var r = 0; r<dataParsed[n].relationsWithFirewallNode.length; r++){
                                     //Find in the relations the second node to relate
-                                    var nodeOfFirewallType = $.grep(dataNodes, function(e){ return e.key == dataParsed[n].relationsWithFirewallNode[r].keyFirstNode; });
+                                    var nodeOfFirewallType = $.grep(dataNodes, function(e){ return e.key == dataParsed[n].relationsWithFirewallNode[r].firstKey; });
                                     console.log("Node of firewall type "+nodeOfFirewallType);
                                 if(nodeOfFirewallType.length==0){
                                     i++;
@@ -528,7 +528,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 console.log(result[0]);
                                   var edge = {
                                     from: result[0].id,
-                                    to: dataNodes[dataNodes.length - 1].id,
+                                    to: dataNodes[dataNodes.length - i].id,
                                     value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
                                 }
                                 dataEdges.push(edge);
