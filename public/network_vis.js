@@ -93,6 +93,15 @@ function NetworkVisTypeProvider(Private) {
         },
         {
           group: 'buckets',
+          name: 'third',
+          icon: 'fa fa-circle-thin',
+          mustBeFirst: 'true',
+          title: 'Node',
+          min: 1,
+          aggFilter: ['terms']//Only have sense choose terms
+        },
+        {
+          group: 'buckets',
           name: 'second',
           icon: 'fa fa-random',
           title: 'Relation',
@@ -107,7 +116,8 @@ function NetworkVisTypeProvider(Private) {
           title: 'Node Color',
           max: 1,
           aggFilter: ['terms']
-        }
+        },
+        
       ])
     },
     responseHandlerConfig: {
