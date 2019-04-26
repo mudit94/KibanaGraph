@@ -528,7 +528,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 console.log(result[0]);
                                   var edge = {
                                     from: result[0].id,
-                                    to: dataNodes[dataNodes.length - i].id,
+                                    to: dataNodes[dataNodes.length - 1].id,
                                     value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
                                 }
                                 dataEdges.push(edge);

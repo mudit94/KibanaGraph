@@ -39,9 +39,11 @@ function NetworkVisTypeProvider(Private) {
         nodePhysics: true,
         firstNodeColor: '#FFA500',
         secondNodeColor: '#00d1ff',
+        thirdNodeColor: '#00d1ff',
         canvasBackgroundColor: '#FFFFFF',
         shapeFirstNode: 'dot',
         shapeSecondNode: 'box',
+        shapeThirdNode: 'circle',
         displayArrow: false,
         posArrow: 'to',
         shapeArrow: 'arrow',
@@ -91,15 +93,7 @@ function NetworkVisTypeProvider(Private) {
           min: 1,
           aggFilter: ['terms']//Only have sense choose terms
         },
-        {
-          group: 'buckets',
-          name: 'third',
-          icon: 'fa fa-circle-thin',
-          mustBeFirst: 'true',
-          title: 'Node',
-          min: 1,
-          aggFilter: ['terms']//Only have sense choose terms
-        },
+        
         {
           group: 'buckets',
           name: 'second',
