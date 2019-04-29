@@ -379,7 +379,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                
                                 console.log(dataParsed[i]);
                             
-
+                                console.log("Fwnode "+fwnodes[i]);
 
                             //assigning color and the content of the popup
                             var inPopup = "<p>" + bucket[firstFirstBucketId] + "</p>"
