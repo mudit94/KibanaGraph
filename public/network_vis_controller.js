@@ -365,6 +365,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     widthOfEdge: sizeEdgeVal,
                                     firstKey: dataParsed[i].keyFirstNode
                                 }
+
                                 fwnodes[0].firstNodeKey.push(dataParsed[i].keyFirstNode);
                                 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
@@ -509,12 +510,12 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             console.log("Error: Node not found");
                         } else if (result.length == 1) {
                             //Found the node, access to its id
-                            console.log(dataParsed[n].relationsWithFirewallNode.length);
+                            
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                                 for(var r = 0; r<dataParsed[n].relationsWithFirewallNode.length; r++){
                                     //Find in the relations the second node to relate
-                                    var nodeOfFirewallType = $.grep(dataNodes, function(e){ return e.key == dataParsed[n].relationsWithFirewallNode[r].firstKey; });
-                                    console.log("Node of firewall type "+nodeOfFirewallType);
+                                    var nodeOfFirewallType = $.grep(dataNodes, function(e){ return e.key == dataParsed[n].relationsWithFirewallNode[r].keyFirstNode; });
+                                    //console.log("Node of firewall type "+nodeOfFirewallType);
                                 if(nodeOfFirewallType.length==0){
                                     i++;
                                   var newf={
