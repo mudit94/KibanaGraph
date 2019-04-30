@@ -514,7 +514,13 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                                 for(var r = 0; r<dataParsed[n].relationsWithFirewallNode.length; r++){
                                     //Find in the relations the second node to relate
-                                    var nodeOfFirewallType = $.grep(dataNodes, function(e){ return e.key == dataParsed[n].relationsWithFirewallNode[r].keyFirstNode; });
+                                    count=0;
+                                    var nodeOfFirewallType = $.grep(dataNodes, function(e){ 
+                                        console.log("relation with firewall node"+dataParsed[n].relationsWithFirewallNode[r].keyFirstNode);
+                                        
+                                        return e.key == dataParsed[n].relationsWithFirewallNode[r].keyFirstNode;
+                                        
+                                    });
                                     //console.log("Node of firewall type "+nodeOfFirewallType);
                                 if(nodeOfFirewallType.length==0){
                                     i++;
