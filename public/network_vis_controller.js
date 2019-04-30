@@ -503,6 +503,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     dataNodes = dataNodes.filter(Boolean);
                     var dataEdges = [];
                     var visited=[]
+                    var x=0;
                     for (var n = 0; n < dataParsed.length; n++) {
                         //Find in the array the node with the keyFirstNode
                         var result = $.grep(dataNodes, function (e) { return e.key == dataParsed[n].keyFirstNode; });
@@ -512,23 +513,15 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             //Found the node, access to its id
                             
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
-                                for(var r = 0; r<dataParsed[n].relationsWithFirewallNode.length; r++){
+                                for(var r = 0; r<fwnodes.length; r++){
                                     //Find in the relations the second node to relate
-                                  
-                                    var nodeOfFirewallType = $.grep(dataNodes, function(e){ 
-                                        console.log("i"+ i +"r"+r);
-                                        console.log("relation with firewall node"+dataParsed[n].relationsWithFirewallNode[r].firstKey);
-                                        
-                                        return e.key == dataParsed[n].relationsWithFirewallNode[r].firstKey;
-                                        
-                                    });
-                                    //console.log("Node of firewall type "+nodeOfFirewallType);
-                                if(nodeOfFirewallType.length==0){
-                                    i++;
+                                  if(fwnodes[r].firstNodeKey.length>0)
+                                  {
+                                i++;
                                   var newf={
                                    id: i,
-                                   key:dataParsed[n].relationsWithFirewallNode[0].keyFireWall,
-                                   label:dataParsed[n].relationsWithFirewallNode[0].keyFireWall,
+                                   key:fwnodes[r].key,
+                                   label:fwnodes[r].key,
                                    color: $scope.vis.params.secondNodeColor,
                                             font: {
                                                 color: $scope.vis.params.labelColor
@@ -536,26 +529,24 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                             shape: $scope.vis.params.shapeSecondNode
 
                                 };
+                                x++;
                                // j++;
-                                 dataNodes.push(newf); 
+                               if(x==1){
+                                 dataNodes.push(newf); }
                                     //  const uniqueValues=[...new Set(dataNodes.map(newf => newf.key))];
                                     // console.log(uniqueValues);
-                                console.log(result[0]);
+                                console.log("Result is "+result[0]);
+                                
+                                    
                                   var edge = {
                                     from: result[0].id,
                                     to: dataNodes[dataNodes.length - 1].id,
                                     value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
                                 }
+                                
                                 dataEdges.push(edge);
                                }
-                               else if(nodeOfFirewallType.length==1){
-                                var enlace = {
-                                    from : result[0].id,
-                                    to : nodeOfFirewallType[0].id,
-                                    value: dataParsed[n].relationsWithFirewallNode[r].widthOfEdge
-                                }
-                                dataEdges.push(enlace);
-} 
+                               
                                    }
                             /*   for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
                                     //Find in the relations the second node to relate
