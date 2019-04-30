@@ -516,9 +516,10 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     //Find in the relations the second node to relate
                                   
                                     var nodeOfFirewallType = $.grep(dataNodes, function(e){ 
-                                        console.log("relation with firewall node"+dataParsed[n].relationsWithFirewallNode[r].keyFirstNode);
+                                        console.log("i"+ i +"r"+r);
+                                        console.log("relation with firewall node"+dataParsed[n].relationsWithFirewallNode[r].firstKey);
                                         
-                                        return e.key == dataParsed[n].relationsWithFirewallNode[r].keyFirstNode;
+                                        return e.key == dataParsed[n].relationsWithFirewallNode[r].firstKey;
                                         
                                     });
                                     //console.log("Node of firewall type "+nodeOfFirewallType);
