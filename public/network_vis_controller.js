@@ -514,7 +514,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                                 for(var r = 0; r<dataParsed[n].relationsWithFirewallNode.length; r++){
                                     //Find in the relations the second node to relate
-                                    count=0;
+                                  
                                     var nodeOfFirewallType = $.grep(dataNodes, function(e){ 
                                         console.log("relation with firewall node"+dataParsed[n].relationsWithFirewallNode[r].keyFirstNode);
                                         
