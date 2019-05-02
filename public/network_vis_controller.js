@@ -504,6 +504,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var dataEdges = [];
                     var visited=[]
                     var x=0;
+                    var count=0;
                     for (var n = 0; n < dataParsed.length; n++) {
                         //Find in the array the node with the keyFirstNode
                         var result = $.grep(dataNodes, function (e) { return e.key == dataParsed[n].keyFirstNode; });
@@ -515,6 +516,10 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                                 for(var r = 0; r<fwnodes.length; r++){
                                     //Find in the relations the second node to relate
+                                   if(visited.indexOf(fwnodes[i].key)==-1)
+                                    {visited.push(fwnodes[i].key);
+                                        
+
                                   if(fwnodes[r].firstNodeKey.length>0)
                                   {
                                 i++;
@@ -546,7 +551,16 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 
                                 dataEdges.push(edge);
                                }
+
                                
+                                   }
+                                   else{
+                                       var edge2={
+                                           from: result[0].id,
+                                           to: dataNodes[dataNodes.length-1].id,
+                                           value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
+                                       }
+                                       dataEdges.push(edge2);
                                    }
                             /*   for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
                                     //Find in the relations the second node to relate
