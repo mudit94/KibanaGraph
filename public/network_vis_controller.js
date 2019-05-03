@@ -235,6 +235,9 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                         //     dataParsed2[i]={};
                         //     dataParsed2[i].keySecondNode= bucket[firstSecondBucketId];
                         // }
+                        var result2=$.grep(dataParsed,function(e){
+                            return e.keySecondNode == bucket[firstSecondBucketId];
+                        });
                          if (result.length == 0) {
                             dataParsed[i] = {};
 
@@ -315,6 +318,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     firstKey: dataParsed[i].keyFirstNode
                                 }
                                 fwnodes[1].firstNodeKey.push(dataParsed[i].keyFirstNode);
+                                fwnodes[1].secondNodeKey.push(dataParsed[i].keySecondNode);
                                 console.log("inside 1st pattern check");
                                 	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
@@ -328,6 +332,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     firstKey: dataParsed[i].keyFirstNode
                                 }
                                 fwnodes[2].firstNodeKey.push(dataParsed[i].keyFirstNode);
+                                fwnodes[2].secondNodeKey.push(dataParsed[i].keySecondNode);
                                 	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
@@ -340,6 +345,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     firstKey: dataParsed[i].keyFirstNode
                                 }
                                 fwnodes[3].firstNodeKey.push(dataParsed[i].keyFirstNode);
+                                fwnodes[3].secondNodeKey.push(dataParsed[i].keySecondNode);
                                 	 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
@@ -355,6 +361,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     firstKey: dataParsed[i].keyFirstNode
                                 }
                                 fwnodes[4].firstNodeKey.push(dataParsed[i].keyFirstNode);
+                                fwnodes[4].secondNodeKey.push(dataParsed[i].keySecondNode);
                                  dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
@@ -368,6 +375,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 }
 
                                 fwnodes[0].firstNodeKey.push(dataParsed[i].keyFirstNode);
+                                fwnodes[0].secondNodeKey.push(dataParsed[i].keySecondNode);
                                 dataParsed[i].relationsWithFirewallNode.push(relation2);
 
                                 }
@@ -382,6 +390,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 console.log(dataParsed[i]);
                             
                                 console.log("Fwnode "+fwnodes[i].firstNodeKey);
+                                console.log("Fwnode"+fwnodes[i].secondNodeKey);
 
                             //assigning color and the content of the popup
                             var inPopup = "<p>" + bucket[firstFirstBucketId] + "</p>"
