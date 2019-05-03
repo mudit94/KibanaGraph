@@ -239,6 +239,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             dataParsed[i] = {};
 
                             dataParsed[i].keyFirstNode = bucket[firstFirstBucketId];
+                            dataParsed[i].keySecondNode=bucket[firstSecondBucketId];
 
                             //Metrics are for the sizes
                             if (metricsAgg_sizeNode) {
@@ -372,7 +373,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 }
                                 //dataParsed[i].relationsWithFirewallNode.push(relation2);        
                               //  console.log("Firewall key"+dataParsed[i].relationsWithFirewallNode.keyFireWall);
-                                    
+
                                 }
                                 //fwnodes[r].firstNodeKey[i]=dataParsed[i].
                                 console.log("Data parsed for "+ i + "Node");
@@ -516,8 +517,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                                 for(var r = 0; r<fwnodes.length; r++){
                                     //Find in the relations the second node to relate
-                                   if(visited.indexOf(fwnodes[i].key)==-1)
-                                    {visited.push(fwnodes[i].key);
+                                   if(visited.indexOf(fwnodes[r].key)==-1)
+                                    {visited.push(fwnodes[r].key);
                                         
 
                                   if(fwnodes[r].firstNodeKey.length>0)
