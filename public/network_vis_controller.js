@@ -243,7 +243,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                             dataParsed[i].keyFirstNode = bucket[firstFirstBucketId];
                             dataParsed[i].keySecondNode=bucket[firstSecondBucketId];
-
+                            console.log("Second node data"+dataParsed[i].keySecondNode);
                             //Metrics are for the sizes
                             if (metricsAgg_sizeNode) {
                                 // Use the getValue function of the aggregation to get the value of a bucket
@@ -544,7 +544,6 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                             shape: $scope.vis.params.shapeSecondNode
 
                                 };
-                                x++;
                                // j++;
               
                                  dataNodes.push(newf); 
