@@ -522,7 +522,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             dataParsed[i].valorSizeNode = sizeVal;
                             dataParsed[i].nodeColorValue = "default";
                             dataParsed[i].nodeColorKey = "default";
-                            var inPopup = "<p>" + bucket[firstFirstBucketId] + "</p>"
+                            var inPopup = "<p>" + bucket[firstSecondBucketId] + "</p>"
                             if (dataParsed[i].nodeColorValue != "default") {
                                 var colorNodeFinal = dataParsed[i].nodeColorValue;
                                 inPopup += "<p>" + dataParsed[i].nodeColorKey + "</p>";
@@ -579,6 +579,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
                                 for(var r = 0; r<fwnodes.length; r++){
+
                                     //Find in the relations the second node to relate
                                    if(visited.indexOf(fwnodes[r].key)==-1)
                                     {visited.push(fwnodes[r].key);
@@ -598,6 +599,24 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                             shape: $scope.vis.params.shapeSecondNode
 
                                 };
+                                if(fwnodes[r].secondNodeKey.length>0){
+                                    i++;
+                                    for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
+                                    var newp={
+                                        id: i,
+                                        key:fwnodes[r].secondNodeKey[j],
+                                        label:fwnodes[r].secondNodeKey[j],
+                                        
+                                   color: $scope.vis.params.secondNodeColor,
+                                   font: {
+                                       color: $scope.vis.params.labelColor
+                                   },
+                                   shape: $scope.vis.params.shapeSecondNode
+                                    };
+                                    dataNodes.push(newp);
+                                }
+                            }
+                                
                                // j++;
               
                                  dataNodes.push(newf); 
