@@ -501,63 +501,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             }
                             return undefined
                         }
-                        if(result2.length==0){
-                            dataParsed[i].keySecondNode=bucket[firstSecondBucketId];
-                            console.log("Second node data"+dataParsed[i].keySecondNode);
-                            //Metrics are for the sizes
-                            if (metricsAgg_sizeNode) {
-                                // Use the getValue function of the aggregation to get the value of a bucket
-                                var value = bucket[nodeSizeId]//metricsAgg_sizeNode.getValue(bucket);
-                                var sizeVal = Math.min($scope.vis.params.maxCutMetricSizeNode, value);
-
-                                //No show nodes under the value
-                                if ($scope.vis.params.minCutMetricSizeNode > value) {
-                                    dataParsed.splice(i, 1);
-                                    return;
-                                }
-                            } else {
-                                var sizeVal = 20;
-                            }
-
-                            dataParsed[i].valorSizeNode = sizeVal;
-                            dataParsed[i].nodeColorValue = "default";
-                            dataParsed[i].nodeColorKey = "default";
-                            var inPopup = "<p>" + bucket[firstSecondBucketId] + "</p>"
-                            if (dataParsed[i].nodeColorValue != "default") {
-                                var colorNodeFinal = dataParsed[i].nodeColorValue;
-                                inPopup += "<p>" + dataParsed[i].nodeColorKey + "</p>";
-                            } else {
-                                var colorNodeFinal = $scope.vis.params.firstNodeColor;
-                            }
-
-                            i++;
-                            //Return the node totally built
-                            var nodeRet = {
-                                id: i,
-                                key: bucket[firstSecondBucketId],
-                                color: colorNodeFinal,
-                                shape: $scope.vis.params.shapeFirstNode,
-                                //size: sizeVal
-                                value: sizeVal,
-                                font: {
-                                    color: $scope.vis.params.labelColor
-                                }
-                            }
-
-                            //If activated, show the labels
-                            if ($scope.vis.params.showLabels) {
-                                nodeReturn.label = bucket[firstSecondBucketId];
-                            }
-
-                            //If activated, show the popups
-                            if ($scope.vis.params.showPopup) {
-                                nodeReturn.title = inPopup;
-                            }
-
-                            return nodeRet;
-                        }
-
-
+                        
                     });
                     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     //Making new static Nodes
