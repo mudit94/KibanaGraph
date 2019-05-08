@@ -550,7 +550,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     i++;
                                     if(fwnodes[r].secondNodeKey[j]!=""){
                                         if(visited2.indexOf(fwnodes[r].secondNodeKey[j])==-1){
-                                    
+                                            visited2.push(fwnodes[r].secondNodeKey[j]);
                                         var newp={
                                         id: i,
                                         key:fwnodes[r].secondNodeKey[j],
