@@ -510,7 +510,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     //Clean "undefined" in the array
                     dataNodes = dataNodes.filter(Boolean);
                     var dataEdges = [];
-                    var visited=[]
+                    var visited=[];
+                    var visited2=[];
                     var x=0;
                     var count=0;
                     for (var n = 0; n < dataParsed.length; n++) {
@@ -547,6 +548,9 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     
                                     for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
                                     i++;
+                                    if(fwnodes[r].secondNodeKey[j]!=""){
+                                        if(visited2.indexOf(fwnodes[r].secondNodeKey[j])==-1){
+                                    
                                         var newp={
                                         id: i,
                                         key:fwnodes[r].secondNodeKey[j],
@@ -561,7 +565,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     dataNodes.push(newp);
                                 }
                             }
-                                
+                            }
+                        }   
                                // j++;
               
                                  dataNodes.push(newf); 
