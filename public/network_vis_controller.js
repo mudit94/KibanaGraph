@@ -544,9 +544,10 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 };
                                 if(fwnodes[r].secondNodeKey.length>0){
-                                    i++;
+                                    
                                     for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
-                                    var newp={
+                                    i++;
+                                        var newp={
                                         id: i,
                                         key:fwnodes[r].secondNodeKey[j],
                                         label:fwnodes[r].secondNodeKey[j],
