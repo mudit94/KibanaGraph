@@ -562,6 +562,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                    },
                                    shape: $scope.vis.params.shapeSecondNode
                                     };
+
+                                    console.log("New nodes are"+newp);
                                     dataNodes.push(newp);
                                     
                                 }
@@ -570,12 +572,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             }
                         }   
                                // j++;
-                                   var edge3={
-                                    from: result[0].id,
-                                    to: dataNodes[dataNodes.length-1].id,
-                                    value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
-                                }
-                                    dataEdges.push(edge);
+                              
                                  dataNodes.push(newf); 
                                     //  const uniqueValues=[...new Set(dataNodes.map(newf => newf.key))];
                                     // console.log(uniqueValues);
