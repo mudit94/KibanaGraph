@@ -565,7 +565,11 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                     console.log("New nodes are"+newp);
                                     dataNodes.push(newp);
-                                    
+                                    var edge3={
+                                        from:newp[i].id,
+                                        to:dataNodes[dataNodes.length-1].id,
+                                        }
+                                        dataEdges.push(edge3);
                                 }
 
                             }
