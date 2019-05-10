@@ -572,12 +572,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             }
                             }
                         }
-                        var edge3={
-                            from:dataNodes[i].id,
-                            to:dataNodes[dataNodes.length-1].id,
-                            
-                            }
-                            dataEdges.push(edge3);   
+                         //   dataEdges.push(edge3);   
                                // j++;
                               
                                  //dataNodes.push(newf); 
@@ -607,7 +602,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                        }
                                        dataEdges.push(edge2);
                                    }
-                            /*   for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
+                         /*  for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
                                     //Find in the relations the second node to relate
                                     var nodeOfSecondType = $.grep(dataNodes, function (e) { 
                                     	console.log("Node of second type parameter"+e.key)
