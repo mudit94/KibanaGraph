@@ -544,6 +544,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                             shape: $scope.vis.params.shapeSecondNode
 
                                 };
+                                dataNodes.push(newf); 
                                 if(fwnodes[r].secondNodeKey.length>0){
                                     
                                     for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
@@ -566,8 +567,9 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     console.log("New nodes are"+newp);
                                     dataNodes.push(newp);
                                     var edge3={
-                                        from:newp[i].id,
+                                        from:dataNodes[i].id,
                                         to:dataNodes[dataNodes.length-1].id,
+                                        
                                         }
                                         dataEdges.push(edge3);
                                 }
@@ -577,7 +579,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                         }   
                                // j++;
                               
-                                 dataNodes.push(newf); 
+                                 //dataNodes.push(newf); 
                                     //  const uniqueValues=[...new Set(dataNodes.map(newf => newf.key))];
                                     // console.log(uniqueValues);
                                 console.log("Result is "+result[0]);
