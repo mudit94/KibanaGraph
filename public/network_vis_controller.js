@@ -564,19 +564,20 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                    shape: $scope.vis.params.shapeSecondNode
                                     };
 
-                                    console.log("New nodes are"+newp);
+                                    console.log("New nodes are"+newp[i]);
                                     dataNodes.push(newp);
-                                    var edge3={
-                                        from:dataNodes[i].id,
-                                        to:dataNodes[dataNodes.length-1].id,
-                                        
-                                        }
-                                        dataEdges.push(edge3);
+                                   
                                 }
 
                             }
                             }
-                        }   
+                        }
+                        var edge3={
+                            from:dataNodes[i].id,
+                            to:dataNodes[dataNodes.length-1].id,
+                            
+                            }
+                            dataEdges.push(edge3);   
                                // j++;
                               
                                  //dataNodes.push(newf); 
