@@ -441,12 +441,12 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     var sizeEdgeVal = 0.1;
                                 }
 
-                                var relation = {
+                               /* var relation = {
                                     keySecondNode: bucket[firstSecondBucketId],
                                     countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
-                                }
-                                dataParsed_node_exist.relationWithSecondNode.push(relation);
+                                }*/
+                             //   dataParsed_node_exist.relationWithSecondNode.push(relation);
 
                              //   console.log(dataParsed[i].keyFirstNode);
                            /*     if(regexpattern1.test(dataParsed_node_exist.relationsWithFirewallNode.keyFireWall)){
