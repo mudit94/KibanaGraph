@@ -545,6 +545,15 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 };
                                 dataNodes.push(newf); 
+                                var edge = {
+                                    from: result[0].id,
+                                    to: dataNodes[dataNodes.length - 1].id,
+                                    value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
+                                }
+
+                            
+                                dataEdges.push(edge);
+                                
                                 if(fwnodes[r].secondNodeKey.length>0){
                                     
                                     for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
@@ -581,15 +590,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 console.log("Result is "+result[0]);
                                 
                                     
-                                  var edge = {
-                                    from: result[0].id,
-                                    to: dataNodes[dataNodes.length - 1].id,
-                                    value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
-                                }
-
-                            
-                                dataEdges.push(edge);
-                                
+                                  
                                }
 
                                
