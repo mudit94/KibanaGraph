@@ -650,7 +650,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             console.log("Error: Multiples nodes with same id found");
                         }
                     }
-                }
+                
                     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
