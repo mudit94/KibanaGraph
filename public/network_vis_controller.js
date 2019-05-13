@@ -564,7 +564,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     dataEdges.push(edge2);
                                 }
                                 
-                                if(fwnodes[r].secondNodeKey.length>0){
+                                /*if(fwnodes[r].secondNodeKey.length>0){
                                     
                                     for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
                                     i++;
@@ -586,7 +586,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     console.log("New nodes are"+newp[i]);
                                     dataNodes.push(newp);
                                    
-                                }
+                                        }*/
 
                             }
                         }
@@ -600,10 +600,10 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 
                                     
                                   
-                               }
+                               
 
                                
-                                   }
+                           
                             
                          /*  for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
                                     //Find in the relations the second node to relate
@@ -645,12 +645,12 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                         console.log("Error: Multiples nodes with same id found");
                                     }
                                }*/
-                            }
-                        }
+                    }
                          else {
                             console.log("Error: Multiples nodes with same id found");
                         }
                     }
+                }
                     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
