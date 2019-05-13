@@ -216,9 +216,9 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var regexpattern3=/41\.24\.121\.[0-9]{1,3}/
                     var regexpattern4=/120\.56\.165\.[0-9]{1,3}/
                     var regexpattern5=/122\.113\.143\.[0-9]{1,3}/
+                    var dataNodes=[];
 
-
-                    var dataNodes = buckets.map(function (bucket) {
+                     dataNodes = buckets.map(function (bucket) {
 
                         var result = $.grep(dataParsed, function (e) { 
 
@@ -527,7 +527,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                     //Find in the relations the second node to relate
                                    if(visited.indexOf(fwnodes[r].key)==-1)
-                                    {visited.push(fwnodes[r].key);
+                                    {
+                                        visited.push(fwnodes[r].key);
                                         
 
                                   if(fwnodes[r].firstNodeKey.length>0)
@@ -552,7 +553,16 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 }
 
                             
-                                dataEdges.push(edge);
+                                dataEdges.push(edge);}
+                            }
+                                else{
+                                    var edge2={
+                                        from: result[0].id,
+                                        to: dataNodes[dataNodes.length-1].id,
+                                        value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
+                                    }
+                                    dataEdges.push(edge2);
+                                }
                                 
                                 if(fwnodes[r].secondNodeKey.length>0){
                                     
@@ -579,7 +589,6 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 }
 
                             }
-                            }
                         }
                          //   dataEdges.push(edge3);   
                                // j++;
@@ -587,7 +596,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                  //dataNodes.push(newf); 
                                     //  const uniqueValues=[...new Set(dataNodes.map(newf => newf.key))];
                                     // console.log(uniqueValues);
-                                console.log("Result is "+result[0]);
+                            //    console.log("Result is "+result[0]);
                                 
                                     
                                   
@@ -595,14 +604,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                
                                    }
-                                   else{
-                                       var edge2={
-                                           from: result[0].id,
-                                           to: dataNodes[dataNodes.length-1].id,
-                                           value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
-                                       }
-                                       dataEdges.push(edge2);
-                                   }
+                            
                          /*  for (var r = 0; r < dataParsed[n].relationWithSecondNode.length; r++) {
                                     //Find in the relations the second node to relate
                                     var nodeOfSecondType = $.grep(dataNodes, function (e) { 
@@ -645,7 +647,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                }*/
                             }
                         }
-                        } else {
+                         else {
                             console.log("Error: Multiples nodes with same id found");
                         }
                     }
