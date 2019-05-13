@@ -8,7 +8,7 @@ const visN = require('vis');
 const randomColor = require('randomcolor');
 const ElementQueries = require('css-element-queries/src/ElementQueries');
 const ResizeSensor = require('css-element-queries/src/ResizeSensor');
-
+var ip=require('ip');
 
 // add a controller to the module, which will transform the esResponse into a
 // tabular format that we can pass to the table directive
@@ -267,9 +267,9 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             	dataParsed[i].relationsWithFirewallNode=[];
                             }
 
-                            if (!dataParsed[i].relationWithSecondNode) {
+                           /* if (!dataParsed[i].relationWithSecondNode) {
                                 dataParsed[i].relationWithSecondNode = [];
-                            }
+                            }*/
 
 
                             //Iterate rows and choose the edge size
@@ -301,11 +301,11 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     }
                                 }
 
-                                var relation = {
+                               /* var relation = {
                                     keySecondNode: bucket[firstSecondBucketId],
                                     countMetric: bucket[nodeSizeId],
                                     widthOfEdge: sizeEdgeVal
-                                }
+                                }*/
                                 //	console.log(regexpattern.test(dataParsed[i].keyFirstNode));
                                 	var relation2={};
                                 
