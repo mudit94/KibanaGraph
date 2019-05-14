@@ -218,7 +218,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var regexpattern5=/122\.113\.143\.[0-9]{1,3}/
                     var dataNodes=[];
                     var ipcollect=[...new Set(buckets.map(ip => buckets[firstFieldAggId]))];
-                    console.log("Ips coming from logs are "+ipcollect);
+                   for(var l=0;l<ipcollect.length;l++)
+                   console.log(ipcollect[l]);
 
 
                      dataNodes = buckets.map(function (bucket) {
