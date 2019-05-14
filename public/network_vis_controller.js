@@ -217,6 +217,9 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var regexpattern4=/120\.56\.165\.[0-9]{1,3}/
                     var regexpattern5=/122\.113\.143\.[0-9]{1,3}/
                     var dataNodes=[];
+                    var ipcollect=[...new Set(buckets.map(ip => ip.col-0-2))]
+                    console.log("Ips coming from logs are "+ipcollect);
+
 
                      dataNodes = buckets.map(function (bucket) {
 
@@ -244,6 +247,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             dataParsed[i].keyFirstNode = bucket[firstFirstBucketId];
                             dataParsed[i].keySecondNode=bucket[firstSecondBucketId];
                             console.log("Second node data"+dataParsed[i].keySecondNode);
+                         
                             //Metrics are for the sizes
                             if (metricsAgg_sizeNode) {
                                 // Use the getValue function of the aggregation to get the value of a bucket
@@ -300,6 +304,9 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                     }
                                 }
+
+                                var subnet1=["255.255.255.224","255.255.255.0","255.255.255.240"];
+                                
 
                                /* var relation = {
                                     keySecondNode: bucket[firstSecondBucketId],
