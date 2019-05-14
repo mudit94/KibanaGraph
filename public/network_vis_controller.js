@@ -548,7 +548,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                    if(visited.indexOf(fwnodes[r].key)==-1)
                                     {
                                         visited.push(fwnodes[r].key);
-                                        
+                                        for(var j=0;j<fwnodes[r].firstNodeKey.length;j++)
+                                        console.log("r is "+r+" j ="+j+ " "+fwnodes[r].firstNodeKey[j]);
 
                                   if(fwnodes[r].firstNodeKey.length>0)
                                   {
