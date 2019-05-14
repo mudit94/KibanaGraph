@@ -392,7 +392,13 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 for(var j=0;j<fwnodes.length;j++){
                                     for(var p=0;p<fwnodes[j].firstNodeKey.length;p++)
                                 
-                                console.log("Fwnode "+fwnodes[j].firstNodeKey[p]);
+                                console.log("Fwnode "+" "+j+" "+fwnodes[j].firstNodeKey[p]);
+                                }
+
+                                for(var j=0;j<fwnodes.length;j++){
+                                    for(var p=0;p<fwnodes[j].secondNodeKey.length;p++)
+                                
+                                console.log("Fwnode "+" "+j+" "+fwnodes[j].secondNodeKey[p]);
                                 }
                                 //console.log("Fwnode"+fwnodes[i].secondNodeKey);
 
