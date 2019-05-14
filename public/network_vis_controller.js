@@ -130,7 +130,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	//console.log("Second field agg id "+secondFieldAggId);
                     // Get the buckets of that aggregation
                     var buckets = resp.rows;
-					console.log(buckets[firstFieldAggId]);
+					console.log(buckets);
                     ///////////////////////////////////////////////////////////////DATA PARSED AND BUILDING NODES///////////////////////////////////////////////////////////////
                     var dataParsed = [];
                     var fw1=[];
@@ -218,8 +218,9 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var regexpattern5=/122\.113\.143\.[0-9]{1,3}/
                     var dataNodes=[];
                     var ipcollect=[...new Set(buckets.map(ip => buckets[firstFieldAggId]))];
-                   for(var l=0;l<ipcollect.length;l++)
-                   console.log(ipcollect[l]);
+                   console.log("array size"+ipcollect.length);
+                    for(var l=0;l<ipcollect.length;l++)
+                   console.log("Ip collect"+ipcollect[l]);
 
 
                      dataNodes = buckets.map(function (bucket) {
