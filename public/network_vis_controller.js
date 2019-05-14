@@ -211,7 +211,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                     // Iterate the buckets
                     var i = 0;
-                    var regexpattern1=/50\.184\.59\.[0-9]{1,3}/
+                    var regexpattern1=/49\.162\.217\.[0-9]{1,3}/
                     var regexpattern2=/30\.65\.26\.[0-9]{1,3}/
                     var regexpattern3=/41\.24\.121\.[0-9]{1,3}/
                     var regexpattern4=/120\.56\.165\.[0-9]{1,3}/
