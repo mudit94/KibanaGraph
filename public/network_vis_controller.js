@@ -534,6 +534,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var x=0;
                     var count=0;
                     var edge={};
+                    var b;
 
                     for (var n = 0; n < dataParsed.length; n++) {
                         //Find in the array the node with the keyFirstNode
@@ -569,6 +570,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 };
                                 dataNodes.push(newf); 
                                //console.log("Result 0 is"+result[0].id);
+                               if(r==0){
                                for(var k=0;k<fwnodes[r].firstNodeKey.length;k++){
                                   edge={
                                         from: dataNodes[x].id,
@@ -578,7 +580,23 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 
 
                                 x++;
-                                dataEdges.push(edge);}
+                                dataEdges.push(edge);}}
+                                else if(r==1){
+                                    //find the id of the node
+                                    for(var k=0;k<dataNodes.length;k++){
+                                        for(var m=r;m<fwnodes[r].firstNodeKey.length;m++)
+                                        if(dataNodes[k].key==fwnodes[r].firstNodeKey[m]){
+                                            b=k;                                           
+                                        }
+                                    }
+                                 var ed= {
+                                     from: dataNodes[b].id,
+                                     to:dataNodes[dataNodes.length-1].id,
+                                     value:dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
+                                 }
+                                 dataEdges.push(ed);
+                                }
+                                
                             }
                             }
                                 /*else{
