@@ -571,20 +571,13 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 };
                                 dataNodes.push(newf); 
                                 console.log("Result 0 is"+result[0].id);
-                                if(r==0){
+                           
                                  edge = {
                                     from: result[0].id,
                                     to: dataNodes[dataNodes.length - 1].id,
                                     value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
                                 }
-                            }
-                            else if(r==1){
-                                edge={
-                                    from:result[0].id,
-                                    to:dataNodes[dataNodes.length].id,
-                                    value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
-                                }
-                            }
+                           
                             
                                 dataEdges.push(edge);}
                             }
@@ -597,7 +590,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     dataEdges.push(edge2);
                                 }
                                 
-                                /*if(fwnodes[r].secondNodeKey.length>0){
+                                if(fwnodes[r].secondNodeKey.length>0){
                                     
                                     for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
                                     i++;
@@ -619,7 +612,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     console.log("New nodes are"+newp[i]);
                                     dataNodes.push(newp);
                                    
-                                        }*/
+                                        }
 
                             }
                         }
@@ -685,7 +678,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     }
                 
                     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+                    for(var m=0;m<dataNodes.length;m++)
+                    console.log(dataNodes[m]);
 
                     //////////////////////////////////////////////////////////Creation of the network with the library//////////////////////////////////////////////////////////
                     var nodesDataSet = new visN.DataSet(dataNodes);
