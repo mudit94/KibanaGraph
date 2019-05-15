@@ -570,20 +570,12 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 dataNodes.push(newf); 
                                //console.log("Result 0 is"+result[0].id);
                                for(var k=0;k<fwnodes[r].firstNodeKey.length;k++){
-                                if(r==0){ 
-                                edge = {
-                                    from: dataNodes[x].id,
-                                    to: dataNodes[dataNodes.length - 2].id,
-                                    value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
-                                }
-                            }
-                                else if(r==1){
-                                    edge={
+                                  edge={
                                         from: dataNodes[x].id,
                                         to: dataNodes[dataNodes.length-1].id,
                                         value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
                                     }
-                                }
+                                
 
                                 x++;
                                 dataEdges.push(edge);}
