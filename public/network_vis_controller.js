@@ -528,11 +528,15 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     ///////////////////////////////////////////////////////////////////////BUILDING EDGES///////////////////////////////////////////////////////////////////////
                     //Clean "undefined" in the array
                     dataNodes = dataNodes.filter(Boolean);
+                    console.log("Data nodes length"+dataNodes.length);
+                    for(var m=0;m<dataNodes.length;m++)
+                    console.log(dataNodes[m]);
                     var dataEdges = [];
                     var visited=[];
                     var visited2=[];
                     var x=0;
                     var count=0;
+                    var edge={};
                     for (var n = 0; n < dataParsed.length; n++) {
                         //Find in the array the node with the keyFirstNode
                         var result = $.grep(dataNodes, function (e) { return e.key == dataParsed[n].keyFirstNode; });
@@ -567,12 +571,20 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 };
                                 dataNodes.push(newf); 
                                 console.log("Result 0 is"+result[0].id);
-                                var edge = {
+                                if(r==0){
+                                 edge = {
                                     from: result[0].id,
                                     to: dataNodes[dataNodes.length - 1].id,
                                     value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
                                 }
-
+                            }
+                            else if(r==1){
+                                edge={
+                                    from:result[0].id,
+                                    to:dataNodes[dataNodes.length].id,
+                                    value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
+                                }
+                            }
                             
                                 dataEdges.push(edge);}
                             }
