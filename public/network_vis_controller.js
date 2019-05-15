@@ -566,7 +566,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 };
                                 dataNodes.push(newf); 
-                                console.log("Result 0 is"+result[0]);
+                                console.log("Result 0 is"+result[0].id);
                                 var edge = {
                                     from: result[0].id,
                                     to: dataNodes[dataNodes.length - 1].id,
