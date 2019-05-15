@@ -528,15 +528,11 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     ///////////////////////////////////////////////////////////////////////BUILDING EDGES///////////////////////////////////////////////////////////////////////
                     //Clean "undefined" in the array
                     dataNodes = dataNodes.filter(Boolean);
-                    console.log("Data nodes length"+dataNodes.length);
-                    for(var m=0;m<dataNodes.length;m++)
-                    console.log(dataNodes[m]);
                     var dataEdges = [];
                     var visited=[];
                     var visited2=[];
                     var x=0;
                     var count=0;
-                    var edge={};
                     for (var n = 0; n < dataParsed.length; n++) {
                         //Find in the array the node with the keyFirstNode
                         var result = $.grep(dataNodes, function (e) { return e.key == dataParsed[n].keyFirstNode; });
@@ -570,14 +566,13 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 };
                                 dataNodes.push(newf); 
-                                console.log("Result 0 is"+result[0].id);
-                           
-                                 edge = {
+                                //console.log("Result 0 is"+result[0].id);
+                                var edge = {
                                     from: result[0].id,
                                     to: dataNodes[dataNodes.length - 1].id,
                                     value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
                                 }
-                           
+
                             
                                 dataEdges.push(edge);}
                             }
@@ -590,7 +585,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     dataEdges.push(edge2);
                                 }
                                 
-                                if(fwnodes[r].secondNodeKey.length>0){
+                                /*if(fwnodes[r].secondNodeKey.length>0){
                                     
                                     for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
                                     i++;
@@ -608,11 +603,10 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                    },
                                    shape: $scope.vis.params.shapeSecondNode
                                     };
-
                                     console.log("New nodes are"+newp[i]);
                                     dataNodes.push(newp);
                                    
-                                        }
+                                        }*/
 
                             }
                         }
@@ -678,8 +672,9 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     }
                 
                     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                    for(var m=0;m<dataNodes.length;m++)
-                    console.log(dataNodes[m]);
+                    for(var k=0;k<dataNodes.length;k++){
+                        console.log(dataNodes[k]);
+                    }
 
                     //////////////////////////////////////////////////////////Creation of the network with the library//////////////////////////////////////////////////////////
                     var nodesDataSet = new visN.DataSet(dataNodes);
