@@ -393,7 +393,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 }
                                 //fwnodes[r].firstNodeKey[i]=dataParsed[i].
-                                console.log("Data parsed for "+ i + "Node");
+                                //console.log("Data parsed for "+ i + "Node");
                               //  dataParsed[i].relationWithSecondNode.push(relation)
                                
                                 console.log(dataParsed[i]);
@@ -571,22 +571,24 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 dataNodes.push(newf); 
                                //console.log("Result 0 is"+result[0].id);
                                if(r==0){
-                               for(var k=0;k<fwnodes[r].firstNodeKey.length;k++){
-                                  edge={
-                                        from: dataNodes[x].id,
+                               for(var p=0;p<fwnodes[r].firstNodeKey.length;p++){
+                                x++;
+                            
+                                edge={
+                                        from: dataNodes[p].id,
                                         to: dataNodes[dataNodes.length-1].id,
                                         value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
                                     }
-                                
+                                console.log(fwnodes[r].firstNodeKey[p])
 
-                                x++;
+                                
                                 dataEdges.push(edge);}}
                                 else if(r==1){
                                     //find the id of the node
                                     for(var k=0;k<dataNodes.length;k++){
                                         for(var m=0;m<fwnodes[r].firstNodeKey.length;m++)
                                         if(dataNodes[k].key==fwnodes[r].firstNodeKey[m]){
-                                            b=k;                                           
+                                            b=k;                                            
                                         }
                                     }
                                  var ed= {
