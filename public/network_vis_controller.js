@@ -584,7 +584,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 else if(r==1){
                                     //find the id of the node
                                     for(var k=0;k<dataNodes.length;k++){
-                                        for(var m=r;m<fwnodes[r].firstNodeKey.length;m++)
+                                        for(var m=0;m<fwnodes[r].firstNodeKey.length;m++)
                                         if(dataNodes[k].key==fwnodes[r].firstNodeKey[m]){
                                             b=k;                                           
                                         }
