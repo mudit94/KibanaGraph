@@ -569,6 +569,28 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 };
                                 dataNodes.push(newf); 
+                                if(fwnodes[r].secondNodeKey.length>0){
+                                    
+                                    for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
+                                    i++;
+                                    if(fwnodes[r].secondNodeKey[j]!=""){
+                                        if(visited2.indexOf(fwnodes[r].secondNodeKey[j])==-1){
+                                            visited2.push(fwnodes[r].secondNodeKey[j]);
+                                        var newp={
+                                        id: i,
+                                        key:fwnodes[r].secondNodeKey[j],
+                                        label:fwnodes[r].secondNodeKey[j],
+                                        
+                                   color: $scope.vis.params.secondNodeColor,
+                                   font: {
+                                       color: $scope.vis.params.labelColor
+                                   },
+                                   shape: $scope.vis.params.shapeSecondNode
+                                    };
+                                    //console.log("New nodes are"+newp[i]);
+                                    dataNodes.push(newp);
+                                   
+                                        }
                                //console.log("Result 0 is"+result[0].id);
                                if(r==0){
                                 for(var k=0;k<dataNodes.length;k++){
@@ -614,28 +636,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     dataEdges.push(edge2);
                                 }*/
                                 
-                                /*if(fwnodes[r].secondNodeKey.length>0){
-                                    
-                                    for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
-                                    i++;
-                                    if(fwnodes[r].secondNodeKey[j]!=""){
-                                        if(visited2.indexOf(fwnodes[r].secondNodeKey[j])==-1){
-                                            visited2.push(fwnodes[r].secondNodeKey[j]);
-                                        var newp={
-                                        id: i,
-                                        key:fwnodes[r].secondNodeKey[j],
-                                        label:fwnodes[r].secondNodeKey[j],
-                                        
-                                   color: $scope.vis.params.secondNodeColor,
-                                   font: {
-                                       color: $scope.vis.params.labelColor
-                                   },
-                                   shape: $scope.vis.params.shapeSecondNode
-                                    };
-                                    console.log("New nodes are"+newp[i]);
-                                    dataNodes.push(newp);
-                                   
-                                        }*/
+                               
 
                             }
                         }
