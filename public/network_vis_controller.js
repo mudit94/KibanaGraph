@@ -587,7 +587,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 
                                 dataEdges.push(edge);}}
                                 }
-                                q=dataNodes.length-1;
+                              var  q=dataNodes.length-1;
                                 if(fwnodes[r].secondNodeKey.length>0){
                                     
                                     for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
