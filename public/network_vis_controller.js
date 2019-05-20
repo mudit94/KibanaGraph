@@ -587,6 +587,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 
                                 dataEdges.push(edge);}}
                                 }
+                                q=dataNodes.length-1;
                                 if(fwnodes[r].secondNodeKey.length>0){
                                     
                                     for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
@@ -607,7 +608,12 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     };
                                     //console.log("New nodes are"+newp[i]);
                                     dataNodes.push(newp);
-                                   
+                                      var edge3={
+                                          from:dataNodes[q].id,
+                                          to:dataNodes[dataNodes.length-1].id,
+                                          value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
+                                      }  
+                                      dataEdges.push(edge3);
                                         }
                                     }
                                 }
