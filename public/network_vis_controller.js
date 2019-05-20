@@ -569,6 +569,24 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                                 };
                                 dataNodes.push(newf); 
+                               
+                               //console.log("Result 0 is"+result[0].id);
+                               if(r==0){
+                                for(var k=0;k<dataNodes.length;k++){
+                               for(var p=0;p<fwnodes[r].firstNodeKey.length;p++){
+                                
+                                if(dataNodes[k].key==fwnodes[r].firstNodeKey[p]){
+                            
+                                edge={
+                                        from: dataNodes[k].id,
+                                        to: dataNodes[dataNodes.length-1].id,
+                                        value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
+                                    }
+                                console.log(fwnodes[r].firstNodeKey[p]);
+
+                                
+                                dataEdges.push(edge);}}
+                                }
                                 if(fwnodes[r].secondNodeKey.length>0){
                                     
                                     for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
@@ -594,23 +612,6 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     }
                                 }
                             }
-                               //console.log("Result 0 is"+result[0].id);
-                               if(r==0){
-                                for(var k=0;k<dataNodes.length;k++){
-                               for(var p=0;p<fwnodes[r].firstNodeKey.length;p++){
-                                
-                                if(dataNodes[k].key==fwnodes[r].firstNodeKey[p]){
-                            
-                                edge={
-                                        from: dataNodes[k].id,
-                                        to: dataNodes[dataNodes.length-1].id,
-                                        value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
-                                    }
-                                console.log(fwnodes[r].firstNodeKey[p]);
-
-                                
-                                dataEdges.push(edge);}}
-                                }
                             }
                                 else if(r==1){
                                     //find the id of the node
