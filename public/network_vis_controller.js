@@ -459,7 +459,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 } else {
                                     var sizeEdgeVal = 0.1;
                                 }
-
+                                fwnodes[0].secondNodeKey.push(dataParsed_node_exist.keySecondNode);
                                /* var relation = {
                                     keySecondNode: bucket[firstSecondBucketId],
                                     countMetric: bucket[nodeSizeId],
@@ -535,7 +535,11 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var count=0;
                     var edge={};
                     var b;
-
+                    for(var l=0;l<fwnodes.length;l++){
+                        for(var s=0;s<fwnodes[l].secondNodeKey.length;s++)
+                        console.log(fwnodes[l].secondNodeKey[s]);
+                        
+                    }
                     for (var n = 0; n < dataParsed.length; n++) {
                         //Find in the array the node with the keyFirstNode
                         var result = $.grep(dataNodes, function (e) { return e.key == dataParsed[n].keyFirstNode; });
