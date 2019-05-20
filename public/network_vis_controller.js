@@ -591,6 +591,9 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                     dataNodes.push(newp);
                                    
                                         }
+                                    }
+                                }
+                            }
                                //console.log("Result 0 is"+result[0].id);
                                if(r==0){
                                 for(var k=0;k<dataNodes.length;k++){
