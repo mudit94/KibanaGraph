@@ -133,8 +133,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     console.log(buckets);
                     var k=0;
                     ///////////////////////////////////////////////////////////////DATA PARSED AND BUILDING NODES///////////////////////////////////////////////////////////////
-                    for(k in buckets){
-                        console.log(buckets[firstFirstBucketId]);
+                    for(k=0;k<buckets.length;k++){
+                        console.log(k[firstFirstBucketId]);
                     }
                     var dataParsed = [];
                     var fw1=[];
@@ -221,11 +221,11 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     var regexpattern4=/120\.56\.165\.[0-9]{1,3}/
                     var regexpattern5=/122\.113\.143\.[0-9]{1,3}/
                     var dataNodes=[];
-                    var ipcollect=[...new Set(buckets.map(ip => buckets[firstFieldAggId]))];
-                   console.log("array size"+ipcollect.length);
+                   // var ipcollect=[...new Set(buckets.map(ip => buckets[firstFieldAggId]))];
+                /*   console.log("array size"+ipcollect.length);
                     for(var l=0;l<ipcollect.length;l++)
                    console.log("Ip collect"+ipcollect[l]);
-
+                 */
 
                      dataNodes = buckets.map(function (bucket) {
 
