@@ -244,6 +244,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             console.log("E vakue is "+e.keySecondNode);
                             return e.keySecondNode == bucket[firstSecondBucketId];
                         });
+
+                        console.log("Result length"+result.length);
                          if (result.length == 0) {
                             dataParsed[i] = {};
 
