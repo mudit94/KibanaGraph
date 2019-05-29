@@ -452,7 +452,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             var dataParsed_node_exist = result[0]
                             //Iterate rows and choose the edge size
                             var result2=$.grep(dataParsed_node_exist,function(e){
-                                console.log("E is "+e.keySecondNode);
+                                console.log("dupli E is "+e.keySecondNode);
                                 return e.keySecondNode == bucket[firstSecondBucketId];
                             });
                             
