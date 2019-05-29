@@ -130,8 +130,12 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                     	//console.log("Second field agg id "+secondFieldAggId);
                     // Get the buckets of that aggregation
                     var buckets = resp.rows;
-					console.log(buckets);
+                    console.log(buckets);
+                    var k=0;
                     ///////////////////////////////////////////////////////////////DATA PARSED AND BUILDING NODES///////////////////////////////////////////////////////////////
+                    for(k in buckets){
+                        console.log(buckets[firstFirstBucketId]);
+                    }
                     var dataParsed = [];
                     var fw1=[];
                     var fw2=[];
