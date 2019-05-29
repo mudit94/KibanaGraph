@@ -240,10 +240,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                         //     dataParsed2[i]={};
                         //     dataParsed2[i].keySecondNode= bucket[firstSecondBucketId];
                         // }
-                        var result2=$.grep(dataParsed,function(e){
-                            console.log("E vakue is "+e.keySecondNode);
-                            return e.keySecondNode == bucket[firstSecondBucketId];
-                        });
+                        
 
                         console.log("Result length"+result.length);
                          if (result.length == 0) {
@@ -454,6 +451,12 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             //Repetido el nodo, solo añadimos sus relaciones
                             var dataParsed_node_exist = result[0]
                             //Iterate rows and choose the edge size
+                            var result2=$.grep(dataParsed_node_exist,function(e){
+                                console.log("E is "+e.keySecondNode);
+                                return e.keySecondNode == bucket[firstSecondBucketId];
+                            });
+                            
+                            
                             console.log("Data Parsed exist"+dataParsed_node_exist);
                             console.log("data parsing for 2nd node"+dataParsed_node_exist.keySecondNode);
                             if ($scope.vis.aggs.bySchemaName['first'].length > 1) {
