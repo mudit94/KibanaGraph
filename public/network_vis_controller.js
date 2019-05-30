@@ -471,7 +471,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 } else {
                                     var sizeEdgeVal = 0.1;
                                 }
-                                fwnodes[0].secondNodeKey.push(dataParsed_node_exist.keySecondNode);
+                                fwnodes[0].secondNodeKey.push(bucket[firstSecondBucketId]);
                                /* var relation = {
                                     keySecondNode: bucket[firstSecondBucketId],
                                     countMetric: bucket[nodeSizeId],
