@@ -471,12 +471,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 } else {
                                     var sizeEdgeVal = 0.1;
                                 }
-                                if(regexpattern1.test(dataParsed_node_exist.relationsWithFirewallNode[0].keyFireWall)){
-                                    console.log("inside regex condition");
-                                    fwnodes[1].secondNodeKey.push(bucket[firstSecondBucketId]);}
-                                }
-                                else{
-                                fwnodes[0].secondNodeKey.push(bucket[firstSecondBucketId]);}
+                                console.log(regexpattern1.test(dataParsed_node_exist.keyFirstNode));
+                                fwnodes[0].secondNodeKey.push(bucket[firstSecondBucketId]);
                                /* var relation = {
                                     keySecondNode: bucket[firstSecondBucketId],
                                     countMetric: bucket[nodeSizeId],
@@ -537,7 +533,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                             }
                             return undefined
                         
-                        
+                        }
                     });
                     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                     //Making new static Nodes
