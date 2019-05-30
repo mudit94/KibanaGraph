@@ -471,7 +471,12 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 } else {
                                     var sizeEdgeVal = 0.1;
                                 }
-                                fwnodes[0].secondNodeKey.push(bucket[firstSecondBucketId]);
+                                if(regexpattern1.test(dataParsed_node_exist.relationsWithFirewallNode[0].keyFireWall)){
+                                    console.log("inside regex condition");
+                                    fwnodes[1].secondNodeKey.push(bucket[firstSecondBucketId]);}
+                                }
+                                else{
+                                fwnodes[0].secondNodeKey.push(bucket[firstSecondBucketId]);}
                                /* var relation = {
                                     keySecondNode: bucket[firstSecondBucketId],
                                     countMetric: bucket[nodeSizeId],
