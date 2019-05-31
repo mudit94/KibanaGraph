@@ -653,6 +653,37 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                      value:dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
                                  }
                                  dataEdges.push(ed);
+                                 var s=dataNodes.length-1;
+                                 if(fwnodes[r].secondNodeKey.length>0){
+                                    
+                                    for(var j=0;j<fwnodes[r].secondNodeKey.length;j++){
+                                    i++;
+                                    if(fwnodes[r].secondNodeKey[j]!=""){
+                                        if(visited2.indexOf(fwnodes[r].secondNodeKey[j])==-1){
+                                            visited2.push(fwnodes[r].secondNodeKey[j]);
+                                        var newp={
+                                        id: i,
+                                        key:fwnodes[r].secondNodeKey[j],
+                                        label:fwnodes[r].secondNodeKey[j],
+                                        
+                                   color: $scope.vis.params.secondNodeColor,
+                                   font: {
+                                       color: $scope.vis.params.labelColor
+                                   },
+                                   shape: $scope.vis.params.shapeSecondNode
+                                    };
+                                    //console.log("New nodes are"+newp[i]);
+                                    dataNodes.push(newp);
+                                      var edge3={
+                                          from:dataNodes[s].id,
+                                          to:dataNodes[dataNodes.length-1].id,
+                                          value: dataParsed[n].relationsWithFirewallNode[0].widthOfEdge
+                                      }  
+                                      dataEdges.push(edge3);
+                                        }
+                                    }
+                                }
+                            }
                                 }
                                 
                             }
