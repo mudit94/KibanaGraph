@@ -34,7 +34,7 @@ function NetworkVisTypeProvider(Private) {
     visConfig: {
       defaults: {
         showLabels: true,
-        showPopup: false,
+        showPopup: true,
         showColorLegend: true,
         nodePhysics: true,
         firstNodeColor: '#FFA500',
