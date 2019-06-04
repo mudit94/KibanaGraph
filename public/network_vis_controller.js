@@ -445,7 +445,8 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
 
                             //If activated, show the popups
                             if ($scope.vis.params.showPopup) {
-                                nodeReturn.title = inPopup;
+                                console.log("activated popups");
+                                inPopup=nodeReturn.key;
                             }
 
                             return nodeReturn;
