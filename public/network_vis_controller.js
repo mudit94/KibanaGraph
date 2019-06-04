@@ -474,8 +474,19 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 if(regexpattern1.test(dataParsed_node_exist.keyFirstNode)){
                                     fwnodes[1].secondNodeKey.push(bucket[firstSecondBucketId]);
                                 }
+                                else if(regexpattern2.test(dataParsed_node_exist.keyFirstNode)){
+                                    fwnodes[2].secondNodeKey.push(bucket[firstSecondBucketId]);
+                                    
+                                }
+                                else if(regexpattern3.test(dataParsed_node_exist.keyFirstNode)){
+                                    fwnodes[3].secondNodeKey.push(bucket[firstSecondBucketId]);
+                                }
+                                else if(regexpattern4.test(dataParsed_node_exist.keyFirstNode)){
+                                    fwnodes[4].secondNodeKey.push(bucket[firstSecondBucketId]);
+                                }
                                 else{
-                                fwnodes[0].secondNodeKey.push(bucket[firstSecondBucketId]);}
+                                fwnodes[0].secondNodeKey.push(bucket[firstSecondBucketId]);
+                            }
                                /* var relation = {
                                     keySecondNode: bucket[firstSecondBucketId],
                                     countMetric: bucket[nodeSizeId],
