@@ -651,7 +651,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 }
                             }
                             }
-                                else if(r==1){
+                                else {
                                     //find the id of the node
                                     for(var k=0;k<dataNodes.length;k++){
                                         for(var m=0;m<fwnodes[r].firstNodeKey.length;m++)
@@ -697,6 +697,7 @@ module.controller('KbnNetworkVisController', function ($scope, $sce, $timeout, P
                                 }
                             }
                                 }
+                                
                                 
                             }
                             }
